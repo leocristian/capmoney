@@ -1,26 +1,25 @@
-const express = require('express')
+const express       = require('express')
+const nunjucks      = require('nunjucks');
+const { pageHome, loginPage, cadInvestidorPage }  = require('./pages')
+
 const server = express()
 
-const hostname = "localhost"
-const port = 3000
-
-server.use(express.json())
-
-server.route('/login')
-    .get((request, response) => {
-        response.sendFile(__dirname + "/views/loginPage/index.html")
-})
-    .post((request, response) => {
-    console.log(request.body)
+nunjucks.configure('src/views', {
+  express: server,
+  noCache: true,
 })
 
-server.route('/cadInvestidor')
-    .get((request, response) => {
-    response.sendFile(__dirname + "/views/cadInvestidorPage/index.html")
-})
+server
+.use(express.urlencoded()) // Analisar corpos codificados por URL (sem essa linha não funciona a resposta do pot do formulario, 'body{}')
+.use(express.json()) //middleware
+.use(express.static("public")) //static folder (todos os arquivos estaticos ficaram aqui)
+
+.get("/", pageHome)
+.get("/login", loginPage)
+.post("/login", loginPage)
+.get("/cadastro", cadInvestidorPage)
 
 
-
-server.listen(port, () => {
-    console.log(`Servidor rodando no endereço: ${hostname}:${port}`)
+.listen(3000, () => {
+    console.log(`Servidor rodando no endereço: localhost:${3000}`)
 })
