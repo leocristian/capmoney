@@ -1,5 +1,6 @@
 const express       = require('express')
 const nunjucks      = require('nunjucks');
+const bodyParser    = require('body-parser')
 const { pageHome, loginPage, cadInvestidorPage }  = require('./pages')
 
 const server = express()
@@ -10,7 +11,7 @@ nunjucks.configure('src/views', {
 })
 
 server
-.use(express.urlencoded()) // Analisar corpos codificados por URL (sem essa linha não funciona a resposta do post do formulario, 'body{}')
+.use(express.urlencoded({ extended: true })) // Analisar corpos codificados por URL (sem essa linha não funciona a resposta do post do formulario, 'body{}')
 .use(express.json()) //middleware
 .use(express.static("public")) //static folder (todos os arquivos estaticos ficarão aqui)
 
