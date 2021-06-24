@@ -18,7 +18,6 @@ function cadInvestidorPage(req, res) {
 }
 
 
-
 module.exports = {
   pageHome,
   loginPage,

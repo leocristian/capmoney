@@ -33,10 +33,17 @@ nav ul li a {
 	padding: 7px 13px;
 	border-radius: 3px;
 	text-transform: uppercase;
+  text-decoration: none;
+}
+nav ul li a#bttn-entrar {
+  background-color: rgb(9, 165, 9);
 }
 a.active, a:hover {
-	background: #1d075f;
+  background: #1d075f;
 	transition: .5s;
+}
+nav ul li a#bttn-entrar:hover {
+  background-color: rgb(0, 182, 0);
 }
 .checkbtn {
 	font-size: 30px;
