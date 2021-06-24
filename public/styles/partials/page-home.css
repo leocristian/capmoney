@@ -1,9 +1,105 @@
+
 #page-landing {
-  background: var(--color-primary);
+  background: var(--color-primary);  
+  display: block;
 }
 
+/* BARRA SUPERIOR =============================================== BARRA SUPERIOR */
+nav {
+	background: #5434af;
+	height: 80px;
+	width: 100%;
+}
+label.logo {
+	/* color: white; */
+	font-size: 3rem;
+	line-height: 80px;
+	margin: 0 100px;
+	font-weight: bold;
+  cursor: pointer;
+}
+nav ul {
+	float: right;
+	margin-right: 20px;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+}
+nav ul li a {
+	color: white;
+	font-size: 17px;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+a.active, a:hover {
+	background: #1d075f;
+	transition: .5s;
+}
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+#check {
+	display: none;
+}
+@media (max-width: 952px){
+	label.logo{
+		font-size: 30px;
+		padding-left: 50px;
+    cursor: pointer;
+	}
+	nav ul li a{
+		font-size: 16px;
+	}
+}
+@media (max-width: 858px){
+	.checkbtn {
+		display: block;
+	}
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #1d075f;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+	nav ul li a {
+		font-size: 20px;
+	}
+	a:hover, a.active {
+		background: none;
+		color: #5434af;
+	}
+	#check:checked ~ ul {
+		left: 0;
+	}
+}
+/* END BARRA SUPERIOR =============================================== END BARRA SUPERIOR */
+
 #container {
-  color: var(--color-text-in-primary)
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  color: var(--color-box-base);
+  width: 100%;
+ /* background-color: linear-gradient(to right, var(--color-box-base) , var(--color-primary)); */
 }
 
 .logo-container h1 {
@@ -22,8 +118,9 @@
   margin-top: 0.8rem;
 }
 
-.hero-image {
+.office-image {
   width: 100%;
+
 }
 
 .buttons-container {
@@ -57,32 +154,30 @@
 }
 
 .buttons-container a.startup {
-  background: var(--color-primary-lighter);
+  background: var(--color-secondary);
 }
 
 .buttons-container a.startup:hover {
-  background: var(--color-primary-light);
+  background: var(--color-secondary-dark);
 }
 
 .buttons-container a.investidor {
-  background: var(--color-secondary);
+  background: var(--color-primary-lighter);
   margin: 0;
 }
 
 .buttons-container a.investidor:hover {
-  background: var(--color-secondary-dark);
+  background: var(--color-primary-dark);
 }
 
-.total-connections {
+.cadastro{
   font-size: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.total-connections img {
-  margin-left: 0.8rem;
-}
+
 
 @media (max-width: 1100px) {
   :root {
@@ -90,7 +185,7 @@
   }
 
   .logo-container img {
-    height: 7rem;
+    height: 10rem;
   }
 }
 
@@ -98,18 +193,18 @@
   #page-landing #container {
     max-width: 1100px;
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
     grid-template-rows: 350px 1fr;
     grid-template-areas: 
-      "capmony img img"
-      "button button texting"
+      "capmoney  img"
+      "button  texting"
     ;
     column-gap: 87px;
     row-gap: 86px;
   }
 
   .logo-container {
-   grid-area: capmony;
+   grid-area: capmoney;
    text-align: initial;
    align-self: center;
    margin: 0;
@@ -119,7 +214,7 @@
     height: 127px;
   }
 
-  .hero-image {
+  .office-image{
     grid-area: img;
     height: 350px;
   }
@@ -130,7 +225,7 @@
     margin: 0;
   }
 
-  .total-connections {
+  .cadastro{
     grid-area: texting;
     justify-self: end;
     font-size: 1.2rem;
