@@ -8,6 +8,19 @@ function pageHome(req, res) {
   return res.render("index.html")
 }
 
+// Função para verificar se o usuário está cadastrado
+function verificaUser(array, key) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+
+    if (element.name == key) {
+      return true
+    } else {
+      return false
+    } 
+  }
+}
+
 function loginPage(req, res) {
   if (req.method == "POST"){
     const { username, passwd } = req.body
@@ -20,9 +33,18 @@ function loginPage(req, res) {
       "Username": username,
       "Password": passwd
     }
-  
-    res.redirect("/")
-    return console.log(`Usuário logado: ${username}`)
+    console.log(userObj.Username)
+
+    // Deve verificar se o usuário informado no login está cadastrado no banco de dados
+    const result = verificaUser(investorArray, userObj.Username)
+
+    if (result) {
+      console.log(`Usuário ${userObj.Username} encontrado!!`)
+    } else {
+      console.log(`Usuário ${userObj.Username} NÂO cadastrado!!`)
+    }
+   
+    return res.redirect("/")
   }
   return res.render("loginPage.html")
 }
