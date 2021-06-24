@@ -10,14 +10,15 @@ nunjucks.configure('src/views', {
 })
 
 server
-.use(express.urlencoded()) // Analisar corpos codificados por URL (sem essa linha não funciona a resposta do pot do formulario, 'body{}')
+.use(express.urlencoded()) // Analisar corpos codificados por URL (sem essa linha não funciona a resposta do post do formulario, 'body{}')
 .use(express.json()) //middleware
-.use(express.static("public")) //static folder (todos os arquivos estaticos ficaram aqui)
+.use(express.static("public")) //static folder (todos os arquivos estaticos ficarão aqui)
 
 .get("/", pageHome)
 .get("/login", loginPage)
 .post("/login", loginPage)
 .get("/cadastro", cadInvestidorPage)
+.post("/cadastro", cadInvestidorPage)
 
 
 .listen(3000, () => {
