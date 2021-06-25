@@ -3,7 +3,7 @@ class Investor{
         this.name = name
         this.email = email
         this.bio = bio
-        this.level = level
+        this.level = level //começa em 1
 
     }
 }
