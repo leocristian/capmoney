@@ -41,6 +41,7 @@ function loginPage(req, res) {
     if (result) {
       console.log(`Usuário ${userObj.Username} encontrado!!`)
     } else {
+  
       console.log(`Usuário ${userObj.Username} NÂO cadastrado!!`)
     }
    
