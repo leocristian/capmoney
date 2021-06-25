@@ -50,7 +50,7 @@ function loginPage(req, res) {
   return res.render("loginPage.html")
 }
 
-function cadInvestidorPage(req, res) {
+function signupPage(req, res) {
   if (req.method == "POST") {
     const { username, email, passwd} = req.body
     
@@ -66,11 +66,11 @@ function cadInvestidorPage(req, res) {
     console.log("Lista de usuários:")
     return console.log(investorArray)
   }
-  return res.render("cadInvestidorPage.html")
+  return res.render("signupPage.html")
 }
 
 module.exports = {
   pageHome,
   loginPage,
-  cadInvestidorPage
+  signupPage
 }
