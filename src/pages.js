@@ -1,7 +1,5 @@
-
 const StartUp = require("./models/StartUp")
-const Investor = require("./models/Investor"
-)
+const Investor = require("./models/Investor")
 const investorArray = []
 
 function pageHome(req, res) {
@@ -40,12 +38,14 @@ function loginPage(req, res) {
 
     if (result) {
       console.log(`Usuário ${userObj.Username} encontrado!!`)
+      return res.send('<script>location.href="/"</script>')
+      
     } else {
-  
+      // res.send('<script>alert("Usuario não cadastrado!"); location.href="/" </script>')
       console.log(`Usuário ${userObj.Username} NÂO cadastrado!!`)
+      return res.send('<script>alert("Usuario não cadastrado!"); location.href="/login"</script>')
     }
-   
-    return res.redirect("/")
+  
   }
   return res.render("loginPage.html")
 }
