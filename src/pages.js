@@ -1,6 +1,6 @@
 const StartUp = require("./models/StartUp")
-const Investor = require("./models/Investor")
-const investorArray = []
+const Investidor = require("./models/Investidor")
+const InvestidorArray = []
 
 function pageHome(req, res) {
   return res.render("index.html")
@@ -34,7 +34,7 @@ function loginPage(req, res) {
     console.log(userObj.Username)
 
     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-    const result = verificaUser(investorArray, userObj.Username)
+    const result = verificaUser(InvestidorArray, userObj.Username)
 
     if (result) {
       console.log(`Usuário ${userObj.Username} encontrado!!`)
@@ -55,16 +55,16 @@ function signupPage(req, res) {
     const { username, email, passwd} = req.body
     
     // Dado que seria cadastrado no banco de dados
-    const newInvestor = new Investor(username, email, "blablabla", 2)
+    const newInvestidor = new Investidor(username, email, "blablabla", 2)
     
     // Lógica para cadastrar no banco de dados (obs. Controller é o responsável por isso)
-    investorArray.push(newInvestor) // Equivalente a "INSERT INTO investidores VALUES (username, email, passwd)"
+    InvestidorArray.push(newInvestidor) // Equivalente a "INSERT INTO investidores VALUES (username, email, passwd)"
 
     console.log(`Usuário ${username} cadastrado com sucesso!!`)
     
     res.redirect("/")
     console.log("Lista de usuários:")
-    return console.log(investorArray)
+    return console.log(InvestidorArray)
   }
   return res.render("signupPage.html")
 }
