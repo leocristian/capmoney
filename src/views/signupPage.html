@@ -4,54 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/partials/signupPage.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+
+		<link rel="stylesheet" href="/styles/partials/signupPage.css">
     <script src="https://kit.fontawesome.com/fd9b141ba6.js" crossorigin="anonymous"></script>
     <title>Cadastro</title>
 </head>
 <body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">💰</label>
+		<ul>
+			<li><a href="/">Início</a></li>
+			<li><a href="#">Sobre</a></li>
+			<li><a href="#">Contato</a></li>
+			<li><a class="active" id="bttn-entrar" href="/login">Entrar</a></li>
+		</ul>
+</nav>
     <!-- from the tutorial https://medium.freecodecamp.org/how-to-build-a-double-slider-sign-in-and-sign-up-form-6a5d03612a34 -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="#">
-			<h1>Create Account</h1>
-			<div class="social-container">
+			<h1>Criando conta de Investidor</h1>
+			<!-- <div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			</div> -->
+
+			<input required type="text" placeholder="Name" id="Name" />
+			<input required type="email" placeholder="Email" id="Email" />
+			<input required type="password" placeholder="Password" id="Password" />
+			<input required type="text" placeholder="Biografia" id="Biografia" />
+			<button>Criar</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="#">
-			<h1>Sign in</h1>
-			<div class="social-container">
+			<h1>Criando Conta de Startup</h1>
+			<!-- <div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			</div> -->
+			<input required	type="text" placeholder="nome" id="nome" />
+			<input required type="email" placeholder="Email" id="Email" />
+			<input required type="password" placeholder="Password" id="Password" />
+			<input required type="url" placeholder="Site" id="Site" />
+			<input required type="text" placeholder="CNPJ" id="CNPJ" />
+			<input required type="number" placeholder="Anos de atuação" id="Anos_de_atuação" />
+			<input required type="text" placeholder="Info sobre faturamento" id="Info_sobre_faturamento" />
+			<input required type="text" placeholder="Objetivo" id="Objetivo" />
+
+			<button>Criar conta</button>
 		</form>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<p>Pretende investir em outros negocios então cadastre como:</p>
+				<button class="ghost" id="signIn">Investidor</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+				<p>Está precisando de um socio ou de capital para seu negocio, cadastre como:</p>
+				<button class="ghost" id="signUp">Startup</button>
+				
 			</div>
 		</div>
 	</div>
@@ -69,5 +92,12 @@
         	container.classList.remove("right-panel-active");
         });
     </script>
+
+<footer>
+	<h4>Capmoney</h4>
+	<p>R. Cícero Duarte, nº 905 - Junco, Picos - PI, 64607-670</p>
+	<p>📞 +55 (89) 4002-8922</p>
+</footer>
+
 </body>
 </html>

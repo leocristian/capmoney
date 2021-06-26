@@ -6,9 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="favicon" href="/images/icons/fav.png"/>
     <title>Faça login na plataforma</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/partials/loginPage.css">
 </head>
 <body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">💰</label>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a class="active" id="bttn-entrar" href="/login">Entrar</a></li>
+        </ul>
+    </nav>
     <div class="box-login">
         <div class="box-header-login">
             <h3>Login</h3>
@@ -18,10 +35,17 @@
                 <input type="text"required name="username" id="username" placeholder="Nome de usuário">
                 <input type="password" required name="passwd" id="passwd" placeholder="Senha">
                 <button type="submit" value="submit">Entrar</button>
+                <span>Novo por aqui:</span>
                 <a href="../cadastro" class="button">Cadastrar-se</a>
             </form>
         </div>
     </div>
+
+    <footer>
+        <h4>Capmoney</h4>
+        <p>R. Cícero Duarte, nº 905 - Junco, Picos - PI, 64607-670</p>
+        <p>📞 +55 (89) 4002-8922</p>
+    </footer>
 
     <script src="./script.js"></script>
 </body>
