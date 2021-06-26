@@ -1,5 +1,5 @@
 body {
-	display: block;
+	display: flex;
 	background-color: #2E2348;
 }
 
@@ -9,6 +9,8 @@ nav {
 	background: #5434af;
 	height: 5rem;
 	width: 100%;
+	top: 0;
+	position: fixed;
 }
 label.logo {
 	/* color: white; */
@@ -152,10 +154,9 @@ input[id="Biografia"]{
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
+	/* position: relative; */
 	overflow: hidden;
-	width: 50rem;
-
+	position: absolute;
 	height: 60rem;
 	margin: auto;
 }
