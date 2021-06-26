@@ -20,7 +20,6 @@
   "homepage": "https://github.com/leocristian/capmoney#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "notifyjs": "^3.0.0",
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {
