@@ -39,7 +39,7 @@ nav ul li a {
 }
 
 a.active, a:hover {
-  background: #1d075f;
+  /* background: #1d075f; */
 	transition: .5s;
 }
 
@@ -111,7 +111,10 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	cursor: pointer;
 }
+
+
 
 button:active {
 	transform: scale(0.95);
@@ -124,6 +127,16 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
+}
+
+a#back{
+	text-decoration: none;
+	color: #fff;
+	height: 50px;
+	margin: auto;
+	margin-top: 50px;
+	bottom: 0;
+	position: fixed;
 }
 
 form {
@@ -283,3 +296,4 @@ footer{
 	position: fixed;
 
 	}
+
