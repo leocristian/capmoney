@@ -1,7 +1,6 @@
 const express       = require('express')
 const nunjucks      = require('nunjucks');
-const bodyParser    = require('body-parser')
-const { pageHome, loginPage, signupPage }  = require('./pages')
+const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup }  = require('./pages')
 
 const server = express()
 
@@ -19,7 +18,8 @@ server
 .get("/login", loginPage)
 .post("/login", loginPage)
 .get("/cadastro", signupPage)
-.post("/cadastro", signupPage)
+.post("/cadastroInvestidor", cadastroInvestidor)
+.post("/cadastroStartup", cadastroStartup)
 
 
 .listen(3000, () => {

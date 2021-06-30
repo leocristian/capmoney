@@ -1,7 +1,8 @@
 class Investidor{
-    constructor(name, email, bio, level){
-        this.name = name
-        this.email = email
+    constructor(Nome, Email, Password, bio, level){
+        this.Nome = Nome 
+        this.Email = Email 
+        this.Password = Password 
         this.bio = bio
         this.level = level //começa em 1
 
