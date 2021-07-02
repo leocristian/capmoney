@@ -1,8 +1,6 @@
-const StartUp = require("./models/StartUp")
-const Investidor = require("./models/Investidor")
+const cadastrarInvestidor = require("./controllers/investorController")
+const cadastrarStartup = require("./controllers/startupController")
 
-const StartUpArray = []
-const InvestidorArray = []
 
 function pageHome(req, res) {
   return res.render("index.html")
@@ -34,7 +32,6 @@ function loginPage(req, res) {
       "Password": passwd
     }
 
-
     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
     const result = verificaUser(InvestidorArray, StartUpArray, userObj)
     // console.log(result) //== undefined
@@ -58,22 +55,13 @@ function signupPage(req, res) {
 }
 
 function cadastroInvestidor(req, res) {
-  console.log('req.body->',req.body,req.method)
   if (req.method == "POST") {
 
     const { Name, Email, Password, Biografia} = req.body
-    
-    // Dado que seria cadastrado no banco de dados
-    const newInvestidor = new Investidor(Name, Email, Password, Biografia, 1)
-    
-    // Lógica para cadastrar no banco de dados (obs. Controller é o responsável por isso)
-    InvestidorArray.push(newInvestidor) // Equivalente a "INSERT INTO investidores VALUES (username, email, passwd)"
-
-    console.log(`Usuário ${Name} cadastrado com sucesso!!`)
-    
-    res.redirect("/")
-    console.log("Lista de usuários Investidores:")
-    return console.log(InvestidorArray)
+  
+    cadastrarInvestidor(Name, Email, Password, Biografia)
+  
+    return res.redirect("/")
   }
   return res.render("signupPage.html")
 }
@@ -81,18 +69,11 @@ function cadastroInvestidor(req, res) {
 function cadastroStartup(req, res) {
   if (req.method == "POST") {
     const { nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo} = req.body
-    console.log('req.body->',req.body)
-    // Dado que seria cadastrado no banco de dados
-    const newStartup = new StartUp(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo)
     
-    // Lógica para cadastrar no banco de dados (obs. Controller é o responsável por isso)
-    StartUpArray.push(newStartup) // Equivalente a "INSERT INTO investidores VALUES (username, email, passwd)"
+    cadastrarStartup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo)
 
-    console.log(`Usuário ${nome} cadastrado com sucesso!!`)
-    
-    res.redirect("/")
-    console.log("Lista de usuários Startus:")
-    return console.log(StartUpArray)
+    return res.redirect("/")
+
   }
   return res.render("signupPage.html")
 }
@@ -101,6 +82,6 @@ module.exports = {
   pageHome,
   loginPage,
   signupPage,
-  cadastroInvestidor, 
+  cadastroInvestidor,
   cadastroStartup
 }
