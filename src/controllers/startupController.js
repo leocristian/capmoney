@@ -1,12 +1,24 @@
-const Startup = require("../models/StartUp")
+async function cadastrarStartup(Name, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo) {
+    const database = require('../../db');
+    const Startup = require("../models/StartUp")
+     
+    try {
+        const resultado = await database.sync();
+        const newStartup = await Startup.create({
+            Nome: Name,
+            Email: Email,
+            Password: Password, 
+            Site: Site, 
+            CNPJ: CNPJ, 
+            Anos_atuacao: Anos_de_atuação, 
+            Faturamento: Info_sobre_faturamento, 
+            Objetivo: Objetivo
+        })
+        console.log("Cadastro Realizado!!");
+    } catch (error) {
+        console.log(`Erro ao cadastrar: ${error}`);
+    }
 
-const StartUpArray = []
-
-function cadastrarStartup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo) {
-    const newStartup = new Startup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo);
-    StartUpArray.push(newStartup)
-
-    console.table(StartUpArray)
 }
 
 function buscarStartup(id) {
