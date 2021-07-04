@@ -1,4 +1,4 @@
-const cadastrarInvestidor = require("./controllers/investorController")
+const { cadastrarInvestidor, buscarInvestidor} = require("./controllers/investorController")
 const cadastrarStartup = require("./controllers/startupController")
 
 
@@ -33,8 +33,8 @@ function loginPage(req, res) {
     }
 
     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-    const result = verificaUser(InvestidorArray, StartUpArray, userObj)
-    // console.log(result) //== undefined
+    const result = buscarInvestidor(userObj.Username, userObj.passwd)
+    console.log(result) //== undefined
 
     if (result) {
       console.log(`Usuário ${userObj.Username} encontrado!!`)

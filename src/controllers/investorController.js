@@ -1,7 +1,7 @@
+const database = require('../../db');
+const Investidor = require("../models/Investidor")
 
 async function cadastrarInvestidor(Name, Email, Password, Biografia) {
-    const database = require('../../db');
-    const Investidor = require("../models/Investidor")
      
     try {
         const resultado = await database.sync();
@@ -13,8 +13,10 @@ async function cadastrarInvestidor(Name, Email, Password, Biografia) {
 
 }
 
-function buscarInvestidor(id) {
-    
+async function buscarInvestidor(Name, Password) {
+    const investLogado = await Investidor.findAll({ where: { Nome: Name, Password: Password}})
+
+    return investLogado
 }
 
-module.exports = cadastrarInvestidor
+module.exports = cadastrarInvestidor, buscarInvestidor
