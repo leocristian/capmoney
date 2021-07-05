@@ -1,6 +1,5 @@
 const cadastrarInvestidor = require("./controllers/investorController")
 const buscarInvestidor = require("./controllers/investorController")
-
 const cadastrarStartup = require("./controllers/startupController")
 
 
@@ -20,31 +19,26 @@ function verificaUser(InvestidorArray, StartUpArray, key) {
   
 }
 
-function loginPage(req, res) {
+async function loginPage(req, res) {
   if (req.method == "POST"){
     const { username, passwd } = req.body
     console.log('req.body ==',req.body);
 
-    // Verificar se a informação "username" está cadastrada no banco de dados
-    // Se sim, entra no sistema.
-    // Se não, mostra mensagem de "Usuário não cadastrado"
-  
-    const userObj = {
-      "Username": username,
-      "Password": passwd
+    // Deve verificar se o usuário informado no login está cadastrado no banco de dados
+    try {
+      let result = await buscarInvestidor(username, passwd)
+      console.log(`Resultado: ${result}`)
+    } catch (error) {
+      console.log(error);
     }
 
-    // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-    const result = buscarInvestidor(userObj.Username, userObj.passwd)
-    console.log(result)
-
     if (result) {
-      console.log(`Usuário ${userObj.Username} encontrado!!`)
+      console.log(`Usuário ${result.Nome} encontrado!!`)
       return res.send('<script>location.href="/"</script>')
       
     } else {
       // res.send('<script>alert("Usuario não cadastrado!"); location.href="/" </script>')
-      console.log(`Usuário ${userObj.Username} NÂO cadastrado!!`)
+      console.log(`Usuário ${result.Nome} NÂO cadastrado!!`)
       return res.send('<script>alert("Usuario não cadastrado!"); location.href="/login"</script>')
     }
   
