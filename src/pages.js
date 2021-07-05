@@ -6,18 +6,6 @@ const cadastrarStartup = require("./controllers/startupController")
 function pageHome(req, res) {
   return res.render("index.html")
 }
-// Função para verificar se o usuário está cadastrado
-
-function verificaUser(InvestidorArray, StartUpArray, key) {
-  var array = InvestidorArray.concat(StartUpArray);
-  console.log('array=',array);
-  console.log('key=',String(key.Username));
-  
- 
-    var result = element=> element.Nome == String(key.Username) 
-    return (array.some(result)) //Dica @charles rosa
-  
-}
 
 async function loginPage(req, res) {
   if (req.method == "POST"){
@@ -25,12 +13,9 @@ async function loginPage(req, res) {
     console.log('req.body ==',req.body);
 
     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-    try {
-      let result = await buscarInvestidor(username, passwd)
-      console.log(`Resultado: ${result}`)
-    } catch (error) {
-      console.log(error);
-    }
+    
+    let result = buscarInvestidor(username, passwd)
+    console.log(`Resultado: ${result.Nome}`)
 
     if (result) {
       console.log(`Usuário ${result.Nome} encontrado!!`)
