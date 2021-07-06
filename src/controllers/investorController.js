@@ -1,8 +1,7 @@
 const database = require('../../db');
 const Investidor = require("../models/Investidor")
 
-
-async function cadastrarInvestidor(Name, Email, Password, Biografia) {
+module.exports = async function cadastrarInvestidor(Name, Email, Password, Biografia) {
     
     try {
         const resultado = await database.sync();
@@ -11,18 +10,16 @@ async function cadastrarInvestidor(Name, Email, Password, Biografia) {
     } catch (error) {
         console.log(`Erro ao cadastrar: ${error}`);
     }
-    
 }
 
-async function buscarInvestidor(Name, Password) {
+module.exports = async function buscarInvestidor(Name, Password) {
     console.log("entrou");
     try {
-        const investLogado = await Investidor.findAll({ where: { Nome: Name, Password: Password}})
-        console.log(`Usuário logado: ${investLogado.Nome}`)
+        const resultado = await database.sync();
+        const investLogado = await Investidor.findAll({where: { Nome: Name, Password: Password}})
+        console.log(JSON.stringify(investLogado))
+        return investLogado[0]
     } catch (error) {
         console.log(`Erro na busca: ${error}`)
     }
-    return investLogado
 }
-
-module.exports = cadastrarInvestidor, buscarInvestidor

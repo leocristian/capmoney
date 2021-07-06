@@ -13,17 +13,16 @@ async function loginPage(req, res) {
     console.log('req.body ==',req.body);
 
     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-    
-    let result = buscarInvestidor(username, passwd)
-    console.log(`Resultado: ${result.Nome}`)
+    let result = await buscarInvestidor(username, passwd)
+    console.log(`Resultado: ${result}`)
 
-    if (result) {
-      console.log(`Usuário ${result.Nome} encontrado!!`)
-      return res.send('<script>location.href="/"</script>')
+    if (result != undefined && result.Nome === username) {
+      console.log(`Usuário ${result} encontrado!!`)
+      return res.send('<script>alert("Usuario cadastrado!"); location.href="/login"</script>')
       
     } else {
       // res.send('<script>alert("Usuario não cadastrado!"); location.href="/" </script>')
-      console.log(`Usuário ${result.Nome} NÂO cadastrado!!`)
+      console.log(`Usuário ${result} NÂO cadastrado!!`)
       return res.send('<script>alert("Usuario não cadastrado!"); location.href="/login"</script>')
     }
   
@@ -39,7 +38,7 @@ function cadastroInvestidor(req, res) {
   if (req.method == "POST") {
 
     const { Name, Email, Password, Biografia} = req.body
-  
+    
     cadastrarInvestidor(Name, Email, Password, Biografia)
   
     return res.redirect("/")
