@@ -3,6 +3,8 @@ const buscarInvestidor = require("./controllers/investorController")
 
 const cadastrarStartup = require("./controllers/startupController")
 const buscarStartup = require("./controllers/startupController")
+const Investidor = require("./models/Investidor")
+const Startup = require("./models/StartUp")
 
 function pageHome(req, res) {
   return res.render("index.html")
@@ -22,8 +24,13 @@ async function loginPage(req, res) {
     }
 
     console.log(`Resultado: ${result}`)
-  
+ 
     if (result != undefined && result.Nome === username && result.Password === passwd) {
+      if (result instanceof Investidor){
+        console.log('USUÁRIO É UM INVESTIDOR');
+      } else if (result instanceof Startup) {
+        console.log('USUÁRIO É UMA STARTUP');
+      }
       console.log(`Usuário ${result} encontrado!!`)
       return res.send('<script>alert("Usuario cadastrado!"); location.href="/login"</script>')
       
