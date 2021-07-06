@@ -1,7 +1,8 @@
 const cadastrarInvestidor = require("./controllers/investorController")
 const buscarInvestidor = require("./controllers/investorController")
-const cadastrarStartup = require("./controllers/startupController")
 
+const cadastrarStartup = require("./controllers/startupController")
+const buscarStartup = require("./controllers/startupController")
 
 function pageHome(req, res) {
   return res.render("index.html")
@@ -16,7 +17,13 @@ async function loginPage(req, res) {
     let result = await buscarInvestidor(username, passwd)
     console.log(`Resultado: ${result}`)
 
-    if (result != undefined && result.Nome === username) {
+    if (result == undefined) {
+      result = await buscarStartup(username, passwd)
+    }
+
+    console.log(`Resultado: ${result}`)
+  
+    if (result != undefined && result.Nome === username && result.Password === passwd) {
       console.log(`Usuário ${result} encontrado!!`)
       return res.send('<script>alert("Usuario cadastrado!"); location.href="/login"</script>')
       

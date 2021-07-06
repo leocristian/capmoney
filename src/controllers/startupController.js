@@ -1,7 +1,7 @@
 const database = require('../../db');
 const Startup = require("../models/StartUp")
  
-async function cadastrarStartup(Name, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo) {
+module.exports = async function cadastrarStartup(Name, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo) {
     try {
         const resultado = await database.sync();
         const newStartup = await Startup.create({
@@ -21,8 +21,14 @@ async function cadastrarStartup(Name, Email, Password, Site, CNPJ, Anos_de_atua�
 
 }
 
-function buscarStartup(id) {
-    
+module.exports = async function buscarStartup(Name, Password) {
+    console.log("entrou");
+    try {
+        const resultado = await database.sync();
+        const startupLogada = await Startup.findOne({where: { Nome: Name, Password: Password}})
+        console.log(JSON.stringify(startupLogada))
+        return startupLogada
+    } catch (error) {
+        console.log(`Erro na busca: ${error}`)
+    }
 }
-
-module.exports = cadastrarStartup
