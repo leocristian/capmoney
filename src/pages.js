@@ -1,8 +1,9 @@
-const cadastrarInvestidor = require("./controllers/investorController")
-const buscarInvestidor = require("./controllers/investorController")
+const cadastrarInvestidor = require("./controllers/investor/cadastrar")
+const buscarInvestidor = require("./controllers/investor/buscar")
 
-const cadastrarStartup = require("./controllers/startupController")
-const buscarStartup = require("./controllers/startupController")
+const cadastrarStartup = require("./controllers/startup/cadastrar")
+const buscarStartup = require("./controllers/startup/buscar")
+
 const Investidor = require("./models/Investidor")
 const Startup = require("./models/StartUp")
 
@@ -28,6 +29,7 @@ async function loginPage(req, res) {
     if (result != undefined && result.Nome === username && result.Password === passwd) {
       if (result instanceof Investidor){
         console.log('USUÁRIO É UM INVESTIDOR');
+        // return res.render("/startups")
       } else if (result instanceof Startup) {
         console.log('USUÁRIO É UMA STARTUP');
       }
@@ -48,23 +50,29 @@ function signupPage(req, res) {
   return res.render("signupPage.html")
 }
 
-function cadastroInvestidor(req, res) {
+async function startups(req, res) {
+  await Startup.findAll().then(function (startups) {
+    res.render("startups", {startups: startups})
+  })
+}
+
+async function cadastroInvestidor(req, res) {
   if (req.method == "POST") {
 
     const { Name, Email, Password, Biografia} = req.body
     
-    cadastrarInvestidor(Name, Email, Password, Biografia)
+    await cadastrarInvestidor(Name, Email, Password, Biografia)
   
     return res.redirect("/")
   }
   return res.render("signupPage.html")
 }
 
-function cadastroStartup(req, res) {
+async function cadastroStartup(req, res) {
   if (req.method == "POST") {
     const { nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo} = req.body
     
-    cadastrarStartup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo)
+    await cadastrarStartup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo)
 
     return res.redirect("/")
 
@@ -77,5 +85,6 @@ module.exports = {
   loginPage,
   signupPage,
   cadastroInvestidor,
-  cadastroStartup
+  cadastroStartup,
+  startups
 }

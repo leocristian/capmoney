@@ -1,6 +1,8 @@
 const express       = require('express')
 const nunjucks      = require('nunjucks');
-const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup }  = require('./pages')
+const Startup = require('./models/StartUp');
+const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup, startups }  = require('./pages')
+
 
 const server = express()
 
@@ -8,6 +10,8 @@ nunjucks.configure('src/views', {
   express: server,
   noCache: true,
 })
+
+server.set('view engine', '.njk')
 
 server
 .use(express.urlencoded({ extended: true })) // Analisar corpos codificados por URL (sem essa linha não funciona a resposta do post do formulario, 'body{}')
@@ -20,7 +24,7 @@ server
 .get("/cadastro", signupPage)
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
-
+.get("/startups", startups)
 
 .listen(3000, () => {
     console.log(`Servidor rodando no endereço: localhost:${3000}`)
