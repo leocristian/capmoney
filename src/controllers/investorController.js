@@ -16,9 +16,9 @@ module.exports = async function buscarInvestidor(Name, Password) {
     console.log("entrou");
     try {
         const resultado = await database.sync();
-        const investLogado = await Investidor.findAll({where: { Nome: Name, Password: Password}})
+        const investLogado = await Investidor.findOne({where: { Nome: Name, Password: Password}})
         console.log(JSON.stringify(investLogado))
-        return investLogado[0]
+        return investLogado
     } catch (error) {
         console.log(`Erro na busca: ${error}`)
     }
