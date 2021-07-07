@@ -1,0 +1,153 @@
+
+/* --------------------------- GRID  */
+
+#box-page{
+
+    width: 90%;
+    height: 85%;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 4rem;
+
+    display: grid;
+    grid-template-columns: 0.4fr 1fr 0.4fr;
+    grid-gap: 2rem;
+
+    text-align: center;
+
+}
+
+
+.container-info{
+
+    background: white;
+    padding: 3rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+
+    border-radius: 1.5rem;
+    border: 1px solid rgba(70, 88, 116, 0.507) ;
+    
+}
+/* --------------------------------------- CONTAINER-ESQUERDO */
+/* ------------------------ ELEMENTO BUSCA */
+
+.search-box{
+    
+    background: #bfc6d4;
+    height: 5rem;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-btn{
+
+    float: right;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #5434af;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: .2s;
+    padding: 0;
+    
+
+}
+
+input.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+
+    color: white;
+    font-size: 16px;
+
+    width: 25rem;
+    height: 2.9rem;
+    margin-top: 0.1rem;
+}
+
+.fas{
+    color: white;
+}
+
+.container-left a:hover {
+    background: #1d075f;
+
+  }
+
+hr{
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid rgb(255, 255, 255) ;
+    margin: 2rem 0 2rem 0;
+}
+
+/* --------------------------------------- CONTAINER-MEIO */
+
+.container-info{
+    display: block;
+}
+
+legend{
+    float: left;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #353b48 ;
+    text-align: left;
+
+}
+
+.contact-button{
+
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    padding-top: 0.5rem;
+    color: white;
+    background: rgb(59, 187, 0);
+    border-radius: 20px;
+    width: 12rem;
+    height: 3.6rem;
+    margin-bottom: 2rem;
+    transition: .5s;
+    
+}
+
+.contact-button:hover{
+    background: rgb(51, 161, 0);
+}
+
+.container-feed hr{
+    margin: 1rem 0 1rem 0;
+}
+.container-feed{
+    text-align: left;
+}
+
+.container-feed ul span{
+    
+    font-size: 1.6rem;
+    color: #353b48;
+}
+
+.legend-post{
+    text-align: center;
+}
+
+.legend-post span{
+    background: #818ea8;
+    text-align: center;
+    border-radius: 40px;
+    padding: 0 2rem 0 2rem;
+    border: 1px solid rgba(70, 88, 116, 0.507) ;
+}
+
+.legend-post span a{
+    color: white;
+}

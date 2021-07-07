@@ -80,10 +80,16 @@ function cadastroStartup(req, res) {
   return res.render("signupPage.html")
 }
 
+function investidorPage(req, res) { 
+  return res.render("investidorPage.html")
+}
+
 module.exports = {
   pageHome,
   loginPage,
   signupPage,
   cadastroInvestidor,
-  cadastroStartup
+  cadastroStartup,
+  investidorPage 
+
 }
