@@ -38,7 +38,16 @@ nav ul li a {
   text-decoration: none;
 }
 
-nav a.active, nav a:hover {
+.active{
+    background: #5434af;
+    transition: .5s;
+}
+
+.active:hover{
+    background: #d40000;
+}
+
+nav a:hover {
   background: #1d075f;
 	transition: .5s;
 }
