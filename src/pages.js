@@ -106,9 +106,6 @@ async function cadastroStartup(req, res) {
   return res.render("signupPage.html")
 }
 
-function investidorPage(req, res) { 
-  return res.render("investidorPage.html")
-}
 
 module.exports = {
   pageHome,
@@ -116,6 +113,5 @@ module.exports = {
   signupPage,
   cadastroInvestidor,
   cadastroStartup,
-  investidorPage,
   startups
 }

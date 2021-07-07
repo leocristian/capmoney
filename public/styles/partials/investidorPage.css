@@ -63,7 +63,7 @@ input.search-txt{
     outline: none;
     float: left;
 
-    color: white;
+    color: #353b48;
     font-size: 16px;
 
     width: 25rem;
@@ -137,7 +137,8 @@ legend{
 }
 
 .legend-post{
-    text-align: center;
+    text-align: left;
+    
 }
 
 .legend-post span{
@@ -146,6 +147,8 @@ legend{
     border-radius: 40px;
     padding: 0 2rem 0 2rem;
     border: 1px solid rgba(70, 88, 116, 0.507) ;
+    color: white;
+    line-height: 2;
 }
 
 .legend-post span a{
