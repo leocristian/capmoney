@@ -1,50 +1,65 @@
-const cadastrarInvestidor = require("./controllers/investorController")
-const buscarInvestidor = require("./controllers/investorController")
+const cadastrarInvestidor = require("./controllers/investor/cadastrar")
+const buscarInvestidor = require("./controllers/investor/buscar")
 
-const cadastrarStartup = require("./controllers/startupController")
+const cadastrarStartup = require("./controllers/startup/cadastrar")
+const buscarStartup = require("./controllers/startup/buscar")
+
+const Investidor = require("./models/Investidor")
+const Startup = require("./models/StartUp")
+// const { response } = require("express")
 
 
 function pageHome(req, res) {
   return res.render("index.html")
 }
-// Função para verificar se o usuário está cadastrado
+// async function Verifica_Usuario_Cadastrado_BD(req){
+//   const { username, passwd } = req.body
+//     console.log('req.body ==',req.body);
 
-function verificaUser(InvestidorArray, StartUpArray, key) {
-  var array = InvestidorArray.concat(StartUpArray);
-  console.log('array=',array);
-  console.log('key=',String(key.Username));
-  
- 
-    var result = element=> element.Nome == String(key.Username) 
-    return (array.some(result)) //Dica @charles rosa
-  
-}
-
-function loginPage(req, res) {
+//     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
+//     let result = await buscarInvestidor(username, passwd)
+//     if (result == undefined) result = await buscarStartup(username, passwd)
+    
+//     if (result != undefined && result.Nome === username && result.Password === passwd) {
+//       if (result instanceof Investidor){
+//         return [true,'I',result]
+//       } else if (result instanceof Startup) {
+//         return [true,'S',result]
+//       }     
+//     } else {
+//       return [false,'',result]
+//     }
+// }
+async function loginPage(req, res) {
   if (req.method == "POST"){
+
     const { username, passwd } = req.body
     console.log('req.body ==',req.body);
 
-    // Verificar se a informação "username" está cadastrada no banco de dados
-    // Se sim, entra no sistema.
-    // Se não, mostra mensagem de "Usuário não cadastrado"
-  
-    const userObj = {
-      "Username": username,
-      "Password": passwd
+    // Deve verificar se o usuário informado no login está cadastrado no banco de dados
+    let result = await buscarInvestidor(username, passwd)
+    console.log(`Resultado: ${result}`)
+
+    if (result == undefined) {
+      result = await buscarStartup(username, passwd)
     }
 
-    // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-    const result = buscarInvestidor(userObj.Username, userObj.passwd)
-    console.log(result)
-
-    if (result) {
-      console.log(`Usuário ${userObj.Username} encontrado!!`)
-      return res.send('<script>location.href="/"</script>')
+    console.log(`Resultado: ${result}`)
+ 
+    if (result != undefined && result.Nome === username && result.Password === passwd) {
+      if (result instanceof Investidor){
+        console.log('USUÁRIO É UM INVESTIDOR');
+        return res.redirect('startups')
+   
+      } else if (result instanceof Startup) {
+        console.log('USUÁRIO É UMA STARTUP');
+      }
+      console.log(`Usuário ${result} encontrado!!`)
+      return res.send('<script>alert("Usuario cadastrado!"); location.href="/login"</script>')
       
     } else {
       // res.send('<script>alert("Usuario não cadastrado!"); location.href="/" </script>')
-      console.log(`Usuário ${userObj.Username} NÂO cadastrado!!`)
+      console.log(`Usuário ${result} NÂO cadastrado!!`)
       return res.send('<script>alert("Usuario não cadastrado!"); location.href="/login"</script>')
     }
   
@@ -56,25 +71,36 @@ function signupPage(req, res) {
   return res.render("signupPage.html")
 }
 
-function cadastroInvestidor(req, res) {
+async function startups(req, res) {
+  console.log('startups req.query;',req.query);
+  console.log('startups req.dataProcessed;',req.dataProcessed);
+  console.log('startups req.query.valid;',req.query.valid);
+  console.log('startups req.body',req.body);
+
+  await Startup.findAll().then(function (startups) {
+    res.render("startups", {startups: startups})
+  })
+}
+
+async function cadastroInvestidor(req, res) {
   if (req.method == "POST") {
 
     const { Name, Email, Password, Biografia} = req.body
+    
+    await cadastrarInvestidor(Name, Email, Password, Biografia)
   
-    cadastrarInvestidor(Name, Email, Password, Biografia)
-  
-    return res.redirect("/")
+    return res.redirect("/login")
   }
   return res.render("signupPage.html")
 }
 
-function cadastroStartup(req, res) {
+async function cadastroStartup(req, res) {
   if (req.method == "POST") {
     const { nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo} = req.body
     
-    cadastrarStartup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo)
+    await cadastrarStartup(nome, Email, Password, Site, CNPJ, Anos_de_atuação, Info_sobre_faturamento, Objetivo)
 
-    return res.redirect("/")
+    return res.redirect("/login")
 
   }
   return res.render("signupPage.html")
@@ -90,6 +116,6 @@ module.exports = {
   signupPage,
   cadastroInvestidor,
   cadastroStartup,
-  investidorPage 
-
+  investidorPage,
+  startups
 }
