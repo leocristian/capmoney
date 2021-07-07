@@ -78,7 +78,7 @@ async function startups(req, res) {
   console.log('startups req.body',req.body);
 
   await Startup.findAll().then(function (startups) {
-    res.render("startups", {startups: startups})
+    res.render("investidorPage", {startups: startups})
   })
 }
 

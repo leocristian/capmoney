@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/70997ba86d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/partials/loginPage.css" />
-    <link rel="stylesheet" href="/styles/partials/InvestidorPage.css" />
+    <link rel="stylesheet" href="/styles/partials/investidorPage.css" />
 </head>
 
 <body>
@@ -49,63 +49,24 @@
         <!------------------ container meio -->
         <div class="container-feed">
             <ul>
+                {% for startup in  startups %}
                 <li class="container-info">
-                    <legend>STARTUP 01</legend>
+                    <legend>{{startup.Nome}}</legend>
                     <a class="contact-button" href="#">
                         <i class="fas fa-comments-dollar"></i>
-                        Contato
+                        {{startup.Email}}
                     </a>
 
                     <hr />
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatum corrupti adipisci tenetur et vero inventore, maxime
-                        libero? Quasi incidunt quibusdam atque tenetur doloremque tempora
-                        beatae consequatur cum! Maxime, iure ratione?</span>
+                    <span>{{startup.Objetivo}}</span>
                     <hr />
                     <div class="legend-post">
                         <span><a>Desde: 2009</a></span>
-                        <span><a>Faturamento: R$2500,00/mês</a></span>
-                        <span><a>Site: www.exemplo.com.br</a></span>
+                        <span><a>Faturamento: {{startup.Faturamento}}</a></span>
+                        <span><a>Site: {{startup.Site}}</a></span>
                     </div>
                 </li>
-                <li class="container-info">
-                    <legend>STARTUP 02</legend>
-                    <a class="contact-button" href="#">
-                        <i class="fas fa-comments-dollar"></i>
-                        Contato
-                    </a>
-
-                    <hr />
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatum corrupti adipisci tenetur et vero inventore, maxime
-                        libero? Quasi incidunt quibusdam atque tenetur doloremque tempora
-                        beatae consequatur cum! Maxime, iure ratione?</span>
-                    <hr />
-                    <div class="legend-post">
-                        <span><a>Desde: 2009</a></span>
-                        <span><a>Faturamento: R$2500,00/mês</a></span>
-                        <span><a>Site: www.exemplo.com.br</a></span>
-                    </div>
-                </li>
-                <li class="container-info">
-                    <legend>STARTUP 03</legend>
-                    <a class="contact-button" href="#">
-                        <i class="fas fa-comments-dollar"></i>
-                        Contato
-                    </a>
-
-                    <hr />
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatum corrupti adipisci tenetur et vero inventore, maxime
-                        libero? Quasi incidunt quibusdam atque tenetur doloremque tempora
-                        beatae consequatur cum! Maxime, iure ratione?</span>
-                    <hr />
-                    <div class="legend-post">
-                        <span><a>Desde: 2009</a></span>
-                        <span><a>Faturamento: R$2500,00/mês</a></span>
-                        <span><a>Site: www.exemplo.com.br</a></span>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
         </div>
         <!------------------ container esquerda -->
