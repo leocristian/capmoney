@@ -75,9 +75,10 @@ function signupPage(req, res) {
 }
 
 async function startups(req, res) {
-  if(req.query.u){
+  var investidor = req.query.u
+  if(investidor){
     await Startup.findAll().then(function (startups) {
-     return res.render("investidorPage", {startups: startups})
+     return res.render("investidorPage", {startups: startups,investidor})
     })
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="/login"</script>')
