@@ -52,11 +52,10 @@
                 {% for startup in  startups %}
                 <li class="container-info">
                     <legend>{{startup.Nome}}</legend>
-                    <a class="contact-button" href="#">
+                    <a class="contact-button" href="#Form">
                         <i class="fas fa-comments-dollar"></i>
                         Contato
                     </a>
-
                     <hr />
                     <span>{{startup.Objetivo}}</span>
                     <hr />
@@ -69,6 +68,35 @@
                 </li>
                 {% endfor %}
             </ul>
+        </div>
+        <div id='Form' class="modal">
+            <div>
+            
+                <h2> Solicitação de reunião </h2>
+                <a href="#" title="Fechar" class="fechar">
+                    <img src="images/icons/close.png" alt='Close'> 
+                </a>
+                <fieldset>
+                    <form action="">
+                        <div>
+                            <div>
+                                <p>Digite a Url da reunião</p>
+                                <input id='input1' type="url" placeholder="https://meet.google.com/new">
+                                <a title='Faça assim para gerar sua reunião'>
+                                    <img src="images/icons/help.png" alt='icon help'>
+                                </a>       
+                        </div>
+                        <div>
+                            <div>
+                                <p>Digite a Data da Reunião</p>
+                                <input id='input2' type="datetime-local" placeholder="09/07/21 14:50">
+                                <a title='Insira sua data assim'>
+                                    <img src="images/icons/help.png" alt='icon help'>
+                                </a>       
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
         </div>
         <!------------------ container esquerda -->
         <div class="container-right">

@@ -52,7 +52,7 @@ async function loginPage(req, res) {
       if (result instanceof Investidor){
         console.log('USUÁRIO É UM INVESTIDOR');
         return res.redirect('investidorPage?u=' + username)
-        // return res.redirect('startups/?context=' + 'context'
+        
    
       } else if (result instanceof Startup) {
         console.log('USUÁRIO É UMA STARTUP');
