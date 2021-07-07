@@ -11,7 +11,9 @@ const Startup = require("./models/StartUp")
 
 function pageHome(req, res) {
   return res.render("index.html")
-}
+}  
+
+
 // async function Verifica_Usuario_Cadastrado_BD(req){
 //   const { username, passwd } = req.body
 //     console.log('req.body ==',req.body);
@@ -49,7 +51,8 @@ async function loginPage(req, res) {
     if (result != undefined && result.Nome === username && result.Password === passwd) {
       if (result instanceof Investidor){
         console.log('USUÁRIO É UM INVESTIDOR');
-        return res.redirect('startups')
+        return res.redirect('investidorPage?u=' + 'username')
+        // return res.redirect('startups/?context=' + 'context'
    
       } else if (result instanceof Startup) {
         console.log('USUÁRIO É UMA STARTUP');
@@ -72,14 +75,13 @@ function signupPage(req, res) {
 }
 
 async function startups(req, res) {
-  console.log('startups req.query;',req.query);
-  console.log('startups req.dataProcessed;',req.dataProcessed);
-  console.log('startups req.query.valid;',req.query.valid);
-  console.log('startups req.body',req.body);
+  if(req.query.u){
+    await Startup.findAll().then(function (startups) {
+     return res.render("investidorPage", {startups: startups})
+    })
+  }
+  else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="/login"</script>')
 
-  await Startup.findAll().then(function (startups) {
-    res.render("investidorPage", {startups: startups})
-  })
 }
 
 async function cadastroInvestidor(req, res) {
