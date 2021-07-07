@@ -56,6 +56,53 @@
                         <i class="fas fa-comments-dollar"></i>
                         Contato
                     </a>
+                    
+                     <div id='Form' class="modal">
+                        <div>
+    
+                            <h2> Solicitação de reunião </h2>
+                            <a href="#" title="Fechar" class="fechar">
+                                <img src="images/icons/close.png" alt='Close'> 
+                            </a>
+                            <fieldset>
+                                <form action="">
+                                    <div>
+                                        <div>
+                                            <p>Digite a Url da reunião</p>
+                                            <input id='input1' type="url" placeholder="https://meet.google.com/new">
+                                            <a title='Faça assim para gerar sua reunião'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a>       
+                                        </div>
+            
+                                        <div>
+                                            <p>Digite a Data da Reunião</p>
+                                            <input id='input2' type="datetime-local" placeholder="09/07/21 14:50">
+                                            <a title='Insira sua data assim'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a> 
+                                        </div>    
+                                        <div>
+                                            <p>Startup</p>
+                                            <input id='input3' type="text" value={{startup.Nome}} disabled>
+                                            <a title='Essa será a startup de sua reunião'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a> 
+                                        </div> 
+                                        <div>
+                                            <p>Investidor</p>
+                                            <input id='input4' type="text" value={{investidor}} disabled>
+                                            <a title='Essa será seu nome para reunião'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a> 
+                                        </div>   
+                                    </div>
+
+                                </form>
+                            </fieldset>
+                        </div>
+                    </div>
+
                     <hr />
                     <span>{{startup.Objetivo}}</span>
                     <hr />
@@ -69,35 +116,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div id='Form' class="modal">
-            <div>
-            
-                <h2> Solicitação de reunião </h2>
-                <a href="#" title="Fechar" class="fechar">
-                    <img src="images/icons/close.png" alt='Close'> 
-                </a>
-                <fieldset>
-                    <form action="">
-                        <div>
-                            <div>
-                                <p>Digite a Url da reunião</p>
-                                <input id='input1' type="url" placeholder="https://meet.google.com/new">
-                                <a title='Faça assim para gerar sua reunião'>
-                                    <img src="images/icons/help.png" alt='icon help'>
-                                </a>       
-                        </div>
-                        <div>
-                            <div>
-                                <p>Digite a Data da Reunião</p>
-                                <input id='input2' type="datetime-local" placeholder="09/07/21 14:50">
-                                <a title='Insira sua data assim'>
-                                    <img src="images/icons/help.png" alt='icon help'>
-                                </a>       
-                        </div>
-                    </form>
-                </fieldset>
-            </div>
-        </div>
+       
         <!------------------ container esquerda -->
         <div class="container-right">
             <ul>
