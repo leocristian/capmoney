@@ -12,20 +12,20 @@
         rel="stylesheet" />
     <script src="https://kit.fontawesome.com/70997ba86d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/partials/side-bar.css" />
     <link rel="stylesheet" href="/styles/partials/loginPage.css" />
     <link rel="stylesheet" href="/styles/partials/investidorPage.css" />
 </head>
 
 <body>
+    
     <nav>
-        <label class="logo">💰</label>
-
+        <img class="logo-cap" src="/images/LOGO-CAP.svg" alt="logo">
         <ul>
-            <li><a href="#">Investidor {{investLogado.Nome}} {{investLogado.id}}</a></li>
             <li><a href="/">Início</a></li>
             <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a class="active" id="bttn-entrar" href="/">Sair</a></li>
+            <li><a href="#">Ajuda</a></li>
+            <li><a class="active" id="bttn-sair" href="/">Sair</a></li>
         </ul>
     </nav>
     <!-------------------------------- GRID DO MEIO DA PAGINA -->
@@ -120,11 +120,12 @@
             </ul>
         </div>
        
-        <!------------------ container esquerda -->
+        <!------------------ container direita -->
         <div class="container-right">
             <ul>
                 <li class="container-info">
-                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                    <i class="fas fa-user"></i>
+                    <li><a href="#">Investidor {{investLogado.Nome}} {{investLogado.id}}</a></li>
                 </li>
                 <li class="container-info">
                     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>

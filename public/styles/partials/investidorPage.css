@@ -14,15 +14,17 @@
 
     text-align: center;
 
+    list-style-type: none;
+    text-decoration: none;
+
 }
 
 
 .container-info{
-
+    display: block;
     background: white;
     padding: 3rem;
     margin-bottom: 1rem;
-    list-style-type: none;
 
     border-radius: 1.5rem;
     border: 1px solid rgba(70, 88, 116, 0.507) ;
@@ -77,7 +79,7 @@ input.search-txt{
 .container-left a:hover {
     background: #1d075f;
 
-  }
+}
 
 hr{
     width: 100%;
@@ -87,10 +89,6 @@ hr{
 }
 
 /* --------------------------------------- CONTAINER-MEIO */
-
-.container-info{
-    display: block;
-}
 
 legend{
     float: left;
@@ -263,3 +261,4 @@ margin: 0 1rem;
 	transform: scale(0.95);
 }
 
+/* --------------------------------------- CONTAINER-DIREITA*/

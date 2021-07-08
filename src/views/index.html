@@ -8,25 +8,31 @@
   <link rel="icon" type="favicon" href="/images/icons/fav.png"/>
 
   <title>CapMoney | Sua Plataforma de investimentos</title>
-
-  <!-- <link rel="shortcut icon" href="/images/favicon.png" type="image/png"> -->
+  
+  <link rel="icon" type="favicon" href="/images/icons/fav.png" />
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/partials/side-bar.css" />
   <link rel="stylesheet" href="/styles/partials/page-home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
     rel="stylesheet">
+
+  <script src="/animations/player.js"></script>
+
+  <!-- TESTE -->
 </head>
 
 <body id="page-landing">
 
   <nav>
+      <img class="logo-cap" src="/images/LOGO-CAP.svg" alt="logo">
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label>
-      <label class="logo">💰</label>
+      
       <ul>
         <li><a class="active" href="#">Início</a></li>
         <li><a href="#">Sobre</a></li>
@@ -39,16 +45,16 @@
 
   <div id="container">
     <div class="logo-container">
-      <h1>CapMoney</h1>
-      <h2>Encontre um socio para seu empreendimento.</h2>
+      <img src="/images/LOGO-CAPMONEY.svg" alt="Logo CapMoney">
+      <h2>Encontre um sócio para seu empreendimento.</h2>
     </div>
 
-    <img class="office-image" src="/images/landing.png" alt="Plataforma de estudos">
 
     <div class="buttons-container">
       <a class="startup" href="/sobre">
         <!-- <img src="images/icons/startup.png" alt="startup"> -->
-        Veja mais ➡
+        Veja mais &nbsp;
+        <i class="fas fa-angle-double-right"></i>
       </a>
 
       <!-- <a class="startup" href="/startup">
@@ -62,6 +68,9 @@
         </a> -->
     </div>
 
+    <div id="animacao">
+      <script src="/animations/codigo.js"></script>
+    </div>
 
     <p class="cadastro">
       "O risco vem de não saber o que você está fazendo." (Warren Buffett)
