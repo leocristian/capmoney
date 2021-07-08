@@ -11,7 +11,7 @@ body {
 }
 .box-header-login{
     border-radius: 6px 6px 0 0;
-    background: linear-gradient(to left, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background:  linear-gradient(to right, #5434af 40%, #1d075f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     width: 30%;
     flex-direction: column;
@@ -40,7 +40,7 @@ body {
 .box-header-login h3{
     color: white;
     text-shadow: 1px 1px black;
-    background: linear-gradient(to left, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background:  linear-gradient(to right, #5434af 40%, #1d075f);; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     font-size: 35px;
 }
@@ -69,11 +69,12 @@ button[type=submit] {
     cursor: pointer;
     font-weight: bold;
     font-size: 20px;
+    transition: .4s;
 }
 
 
 button[type=submit]:hover {
-    background-color: #416ce2;
+    background-color: rgb(27, 179, 0);
 }
 
 h3 {

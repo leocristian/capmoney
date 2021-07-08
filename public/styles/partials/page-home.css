@@ -64,7 +64,7 @@
 
   color: var(--color-button-text);
 
-  transition: background 0.2s;
+  transition: 0.2s;
 }
 
 .buttons-container a img {
