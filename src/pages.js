@@ -88,6 +88,7 @@ async function startups(req, res) {
 
 async function cadastroInvestidor(req, res) {
   if (req.method == "POST") {
+    console.log("log==",req.body);
 
     const { Name, Email, Password, Biografia} = req.body
     
@@ -112,8 +113,9 @@ async function cadastroStartup(req, res) {
 
 async function cadastroReuniao(req, res) {
   if (req.method == "POST") {
+    console.log("req body: " + req.body)
     const { input1, input2 } = req.body
-    console.log("req body: " + input1)
+    console.log("req input1: " + input1)
     return res.send('<script>alert("Reunião Agendada!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
   }
 }
