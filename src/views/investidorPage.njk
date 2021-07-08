@@ -34,14 +34,12 @@
         <div class="container-left">
             <ul>
                 <li class="container-info">
-                    <div>
                         <div class="search-box">
                             <input class="search-txt" type="text" name="" placeholder="Pesquisar" />
                             <a class="search-btn" href="#">
                                 <i class="fas fa-search"></i>
                             </a>
                         </div>
-                    </div>
                     <hr />
                 </li>
             </ul>
@@ -124,8 +122,13 @@
         <div class="container-right">
             <ul>
                 <li class="container-info">
-                    <i class="fas fa-user"></i>
-                    <li><a href="#">Investidor {{investLogado.Nome}} {{investLogado.id}}</a></li>
+                    <div class="user-box">
+                        <i class="fas fa-user"></i>
+                        <h1 class="name-user">{{investLogado.Nome}}</h1>
+                        <hr>
+                        <h3>Investidor</h3>
+                        <h5 class="bio-user">{{investLogado.Bio}}</h5>
+                    </div>
                 </li>
                 <li class="container-info">
                     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>

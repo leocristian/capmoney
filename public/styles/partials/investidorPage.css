@@ -14,11 +14,13 @@
 
     text-align: center;
 
-    list-style-type: none;
     text-decoration: none;
 
 }
 
+ul{
+  list-style-type: none;
+}
 
 .container-info{
     display: block;
@@ -34,18 +36,18 @@
 /* ------------------------ ELEMENTO BUSCA */
 
 .search-box{
-    
+  
     background: #bfc6d4;
     height: 5rem;
     border-radius: 40px;
-    padding: 10px;
+    padding: 5px;
 }
 
 .search-btn{
 
     float: right;
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background: #5434af;
     display: flex;
@@ -54,8 +56,8 @@
     text-decoration: none;
     transition: .2s;
     padding: 0;
-    
 
+  
 }
 
 input.search-txt{
@@ -67,9 +69,14 @@ input.search-txt{
     color: #353b48;
     font-size: 16px;
 
-    width: 25rem;
+    width: 80%;
     height: 2.9rem;
-    margin-top: 0.1rem;
+}
+
+@media (max-width: 1429px){
+  input.search-txt{
+    width: 20%;
+  }
 }
 
 .fas{
@@ -262,3 +269,35 @@ margin: 0 1rem;
 }
 
 /* --------------------------------------- CONTAINER-DIREITA*/
+
+
+.user-box{
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+
+}
+
+.user-box .fas{
+  color: white;
+  padding: 2rem 2.2rem; 
+  border-radius: 50%;
+  background: #5434af;
+  font-size: 40px;
+}
+
+.user-box .name-user{
+  font-size: 36px;
+}
+
+.user-box .bio-user{
+  background: rgb(226, 226, 226);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(189, 189, 189, 0.8);
+  width: 240%;
+  margin-top: 2rem;
+}
+
+.container-right hr{
+  margin: 0;
+}
