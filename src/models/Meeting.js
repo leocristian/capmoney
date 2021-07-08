@@ -2,7 +2,7 @@ const Sequelize = require("sequelize")
 const database = require("../../db")
 
 
-const Encontro = database.define("Encontro", {
+const Meeting = database.define("Meeting", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -17,16 +17,14 @@ const Encontro = database.define("Encontro", {
         type: Sequelize.DATE,
         allowNull: false
     },
-    Hora: {
+    IdStartup: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
     IdInvestor: {
-        allowNull: false
-    },
-    IdStartup: {
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 })
 
-module.exports = Encontro
+module.exports = Meeting

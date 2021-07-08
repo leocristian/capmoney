@@ -4,6 +4,8 @@ const buscarInvestidor = require("./controllers/investor/buscar")
 const cadastrarStartup = require("./controllers/startup/cadastrar")
 const buscarStartup = require("./controllers/startup/buscar")
 
+const cadastrarReuniao = require("./controllers/reuniao/cadastrar")
+
 const Investidor = require("./models/Investidor")
 const Startup = require("./models/StartUp")
 // const { response } = require("express")
@@ -113,10 +115,18 @@ async function cadastroStartup(req, res) {
 
 async function cadastroReuniao(req, res) {
   if (req.method == "POST") {
-    console.log("req body: " + req.body)
-    const { input1, input2 } = req.body
-    console.log("req input1: " + input1)
-    return res.send('<script>alert("Reunião Agendada!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+    console.log("req body: " + JSON.stringify(req.body))
+    const { url, data, startup_id, investidor_id } = req.body
+
+    try {
+      await cadastrarReuniao(url, data, startup_id, investidor_id)
+      return res.send('<script>alert("Reunião Agendada!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+      
+    } catch (error) {
+      console.log(`Erro ao cadastrar: ${error}`)
+      return res.send('<script>alert("Erro ao agendar reunião!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+    }
+
   }
 }
 
