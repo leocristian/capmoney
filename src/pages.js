@@ -138,13 +138,15 @@ async function buscarReunioes(req, res) {
   console.log(JSON.stringify(req.body))
   var startup = Buffer.from(req.query.u, 'base64').toString();
   const startupLogada = await Startup.findOne({where: {Nome:startup}});
+  console.log("StartupLogada: " + startupLogada)
+  let reunioes = await buscarReuniao(startupLogada.id)
+
+  console.log("REUNIOES: " + reunioes)
 
   if(startupLogada){
-    await Meeting.findAll().then(function (reunioes) {
-     return res.render("startupPage", {reunioes: reunioes, startupLogada})
-    })
+    return res.render("startupPage", {reunioes: reunioes, startupLogada})
   }
-  else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="/login"</script>')
+  else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
 }
 module.exports = {
   pageHome,

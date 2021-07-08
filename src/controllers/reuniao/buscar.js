@@ -5,7 +5,7 @@ async function buscarReuniao(startup_id) {
     console.log("entrou");
     try {
         const resultado = await database.sync();
-        const reunioes  = await Meeting.findAll({where: { id: startup_id}})
+        const reunioes  = await Meeting.findAll({where: { IdStartup: startup_id}})
         console.log(JSON.stringify(reunioes))
         return reunioes
     } catch (error) {
