@@ -65,11 +65,11 @@
                                 <img src="images/icons/close.png" alt='Close'> 
                             </a>
                             <fieldset>
-                                <form action="">
+                                <form action="/reuniao" method="POST">
                                     <div>
                                         <div>
                                             <p>Digite a Url da reunião</p>
-                                            <input id='input1' type="url" placeholder="https://meet.google.com/new">
+                                            <input id="input1" type="url" required placeholder="https://meet.google.com/new">
                                             <a title='Faça assim para gerar sua reunião'>
                                                 <img src="images/icons/help.png" alt='icon help'>
                                             </a>       
@@ -77,27 +77,27 @@
             
                                         <div>
                                             <p>Digite a Data da Reunião</p>
-                                            <input id='input2' type="datetime-local" placeholder="09/07/21 14:50">
+                                            <input id="input2" type="datetime-local" required placeholder="09/07/21 14:50">
                                             <a title='Insira sua data assim'>
                                                 <img src="images/icons/help.png" alt='icon help'>
                                             </a> 
                                         </div>    
                                         <div>
                                             <p>Startup</p>
-                                            <input id='input3' type="text" placeholder={{startup.Nome}} value={{startup.id}} disabled>
+                                            <input id="input3" type="text" required placeholder={{startup.Nome}} value={{startup.id}} disabled>
                                             <a title='Essa será a startup de sua reunião'>
                                                 <img src="images/icons/help.png" alt='icon help'>
                                             </a> 
                                         </div> 
                                         <div>
                                             <p>Investidor</p>
-                                            <input id='input4' type="text" value={{investLogado.Nome}}  disabled>
+                                            <input id="input4" type="text" required value={{investLogado.Nome}}  disabled>
                                             <a title='Essa será seu nome para reunião'>
                                                 <img src="images/icons/help.png" alt='icon help'>
                                             </a> 
                                         </div>   
                                     </div>
-
+                                    <button type="submit" value="submit" >Agendar reunião</button>
                                 </form>
                             </fieldset>
                         </div>
@@ -129,14 +129,12 @@
             </ul>
         </div>
     </section>
-    <!----------------------------------->
     <footer>
         <h4>Capmoney</h4>
         <p>R. Cícero Duarte, nº 905 - Junco, Picos - PI, 64607-670</p>
         <p>📞 +55 (89) 4002-8922</p>
     </footer>
 
-    <script src="./script.js"></script>
 </body>
 
 </html>

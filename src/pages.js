@@ -110,6 +110,13 @@ async function cadastroStartup(req, res) {
   return res.render("signupPage.html")
 }
 
+async function cadastroReuniao(req, res) {
+  if (req.method == "POST") {
+    const { input1, input2 } = req.body
+    console.log("req body: " + input1)
+    return res.send('<script>alert("Reunião Agendada!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+  }
+}
 
 module.exports = {
   pageHome,
@@ -117,5 +124,6 @@ module.exports = {
   signupPage,
   cadastroInvestidor,
   cadastroStartup,
-  startups
+  startups,
+  cadastroReuniao
 }
