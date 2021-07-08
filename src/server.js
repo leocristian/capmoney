@@ -1,7 +1,7 @@
 const express       = require('express')
 const nunjucks      = require('nunjucks');
-const Startup = require('./models/StartUp');
-const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup, startups }  = require('./pages')
+
+const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup, startups, cadastroReuniao }  = require('./pages')
 
 
 
@@ -26,6 +26,7 @@ server
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
 .get("/InvestidorPage", startups)
+.post("/reuniao", cadastroReuniao)
 
 .listen(3000, () => {
     console.log(`Servidor rodando no endereço: localhost:${3000}`)

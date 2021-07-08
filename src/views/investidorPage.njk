@@ -52,55 +52,12 @@
                 {% for startup in  startups %}
                 <li class="container-info">
                     <legend>{{startup.Nome}}</legend>
-                    <a class="contact-button" href="#Form">
+                    <a class="contact-button" id="botao_contato" onClick="Mostrar()" href="#Form{{startup.id}}">
                         <i class="fas fa-comments-dollar"></i>
                         Contato
                     </a>
-                    
-                    <div id='Form' class="modal">
-                        <div>
-    
-                            <h2> Solicitação de reunião </h2>
-                            <a href="#" title="Fechar" class="fechar">
-                                <img src="images/icons/close.png" alt='Close'> 
-                            </a>
-                            <fieldset>
-                                <form action="">
-                                    <div>
-                                        <div>
-                                            <p>Digite a Url da reunião</p>
-                                            <input id='input1' type="url" placeholder="https://meet.google.com/new">
-                                            <a title='Faça assim para gerar sua reunião'>
-                                                <img src="images/icons/help.png" alt='icon help'>
-                                            </a>       
-                                        </div>
-            
-                                        <div>
-                                            <p>Digite a Data da Reunião</p>
-                                            <input id='input2' type="datetime-local" placeholder="09/07/21 14:50">
-                                            <a title='Insira sua data assim'>
-                                                <img src="images/icons/help.png" alt='icon help'>
-                                            </a> 
-                                        </div>    
-                                        <div>
-                                            <p>Startup</p>
-                                            <input id='input3' type="text" value={{startup.Nome}} disabled>
-                                            <a title='Essa será a startup de sua reunião'>
-                                                <img src="images/icons/help.png" alt='icon help'>
-                                            </a> 
-                                        </div> 
-                                        <div>
-                                            <p>Investidor</p>
-                                            <input id='input4' type="text" value={{investidor}} disabled>
-                                            <a title='Essa será seu nome para reunião'>
-                                                <img src="images/icons/help.png" alt='icon help'>
-                                            </a> 
-                                        </div>   
-                                    </div>
-                                </form>
-                            </fieldset>
-                        </div>
-                    </div>
+
+                     
 
                     <hr />
                     <span>{{startup.Objetivo}}</span>
@@ -112,6 +69,53 @@
                         <span><a>{{startup.Email}}</a></span>
                     </div>
                 </li>
+
+                <div id='Form{{startup.id}}' class="modal">
+                    
+                        <div>
+    
+                            <h2> Solicitação de reunião</h2>
+                            <a href="#" title="Fechar" class="fechar">
+                                <img src="images/icons/close.png" alt='Close'> 
+                            </a>
+                            <fieldset>
+                               <form action="/reuniao" method="POST">
+                                    <div>
+                                        <div>
+                                            <p>Digite a Url da reunião</p>
+                                            <input required id='form_input1_startupID_{{startup.id}}' type="url" name='url'  placeholder="https://meet.google.com/new">
+                                            <a title='Faça assim para gerar sua reunião'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a>       
+                                        </div>
+            
+                                        <div>
+                                            <p>Digite a Data da Reunião</p>
+                                            <input required id='form_input2_startupID_{{startup.id}}' type="datetime-local" name='data' placeholder="09/07/21 14:50">
+                                            <a title='Insira sua data assim'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a> 
+                                        </div>    
+                                        <div>
+                                            <p>Startup {{startup.Nome}}</p>
+                                            <input id='form_input3_startupID_{{startup.id}}' type="text" name='startup_id' value={{startup.Nome}} disabled> <!-- value={{startup.id}} -->
+                                            <a title='Essa será a startup de sua reunião'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a> 
+                                        </div> 
+                                        <div>
+                                            <p>Investidor</p>
+                                            <input id='form_input4_startupID_{{startup.id}}' type="text" name='investidor_id' value={{investLogado.Nome}}  disabled>  <!-- value={{investLogado.id}} -->
+                                            <a title='Essa será seu nome para reunião'>
+                                                <img src="images/icons/help.png" alt='icon help'>
+                                            </a> 
+                                        </div>   
+                                    </div>
+                                    <button type="submit" value="submit" >Agendar reunião</button>
+                                </form>
+                            </fieldset>
+                        </div>
+                    </div>
                 {% endfor %}
             </ul>
         </div>
@@ -121,7 +125,7 @@
             <ul>
                 <li class="container-info">
                     <i class="fas fa-user"></i>
-                    <a href="#">Investidor {{investidor}}</a>
+                    <li><a href="#">Investidor {{investLogado.Nome}} {{investLogado.id}}</a></li>
                 </li>
                 <li class="container-info">
                     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
@@ -136,7 +140,6 @@
         <p>📞 +55 (89) 4002-8922</p>
     </footer>
 
-    <script src="./script.js"></script>
 </body>
 
 </html>

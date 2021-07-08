@@ -8,7 +8,6 @@ const Investidor = require("./models/Investidor")
 const Startup = require("./models/StartUp")
 // const { response } = require("express")
 
-
 function pageHome(req, res) {
   return res.render("index.html")
 }  
@@ -51,7 +50,8 @@ async function loginPage(req, res) {
     if (result != undefined && result.Nome === username && result.Password === passwd) {
       if (result instanceof Investidor){
         console.log('USUÁRIO É UM INVESTIDOR');
-        return res.redirect('investidorPage?u=' + username)
+        var user_encrypted = Buffer.from(username).toString('base64')
+        return res.redirect('investidorPage?u=' + user_encrypted)
         
    
       } else if (result instanceof Startup) {
@@ -75,18 +75,20 @@ function signupPage(req, res) {
 }
 
 async function startups(req, res) {
-  var investidor = req.query.u
-  if(investidor){
+  var investidor = Buffer.from(req.query.u, 'base64').toString();
+  const investLogado = await Investidor.findOne({where: {Nome:investidor}});
+
+  if(investLogado){
     await Startup.findAll().then(function (startups) {
-     return res.render("investidorPage", {startups: startups,investidor})
+     return res.render("investidorPage", {startups: startups,investLogado})
     })
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="/login"</script>')
-
 }
 
 async function cadastroInvestidor(req, res) {
   if (req.method == "POST") {
+    console.log("log==",req.body);
 
     const { Name, Email, Password, Biografia} = req.body
     
@@ -109,6 +111,14 @@ async function cadastroStartup(req, res) {
   return res.render("signupPage.html")
 }
 
+async function cadastroReuniao(req, res) {
+  if (req.method == "POST") {
+    console.log("req body: " + req.body)
+    const { input1, input2 } = req.body
+    console.log("req input1: " + input1)
+    return res.send('<script>alert("Reunião Agendada!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+  }
+}
 
 module.exports = {
   pageHome,
@@ -116,5 +126,6 @@ module.exports = {
   signupPage,
   cadastroInvestidor,
   cadastroStartup,
-  startups
+  startups,
+  cadastroReuniao
 }
