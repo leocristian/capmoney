@@ -2,7 +2,7 @@
   --color-background: #F0F0F7;
   --color-primary-lighter: #2b478b;
   --color-primary-light: #916BEA;
-  --color-primary:  #2e2348;
+  --color-primary:  #e3ddf5;
   --color-primary-dark: #233862;
   --color-primary-darker: #6842c2;
   --color-secondary: #ef961a;
@@ -15,7 +15,7 @@
   --color-line-in-white: #E6E6F0;
   --color-input-background: #F8F8FC;
   --color-button-text: #FFFFFF;
-  --color-box-base: #FFFFFF;
+  --color-box-base: #2e2348;
   --color-box-footer: #FAFAFC;
   --color-small-info: #C1BCCC;
   font-size: 60%; /* controle das medidas rem */

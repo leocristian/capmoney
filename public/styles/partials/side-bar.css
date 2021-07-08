@@ -1,0 +1,102 @@
+/* BARRA SUPERIOR =============================================== BARRA SUPERIOR */
+nav {
+	/* background: #5434af; */
+	background: linear-gradient(to right, #5434af 40%, #1d075f);
+	height: 5rem;
+	width: 100%;
+}
+.logo-cap{
+    height: 85%;
+    margin-left: 5.5%;
+    margin-top: 3px;
+
+}
+
+nav ul {
+	float: right;
+	margin-right: 20px;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 5rem;
+	margin: 0 5px;
+}
+nav ul li a {
+	color: white;
+	font-size: 1.5rem;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+  text-decoration: none;
+}
+nav ul li a#bttn-entrar {
+  background-color: #5434af;
+}
+nav ul li a#bttn-sair {
+	background-color: #5434af;
+}
+
+a.active, a:hover {
+  background: #1d075f;
+	transition: .5s;
+}
+nav ul li a#bttn-entrar:hover {
+  background-color: rgb(27, 179, 0);
+}
+
+nav ul li a#bttn-sair:hover {
+	background-color: rgb(216, 1, 1);
+}
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 5rem;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+#check {
+	display: none;
+}
+@media (max-width: 952px){
+	label.logo{
+		font-size: 30px;
+		padding-left: 50px;
+    cursor: pointer;
+	}
+	nav ul li a{
+		font-size: 16px;
+	}
+}
+@media (max-width: 858px){
+	.checkbtn {
+		display: block;
+	}
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #1d075f;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+	nav ul li a {
+		font-size: 20px;
+	}
+	a:hover, a.active {
+		background: none;
+		color: #5434af;
+	}
+	#check:checked ~ ul {
+		left: 0;
+	}
+}
+/* END BARRA SUPERIOR =============================================== END BARRA SUPERIOR */
