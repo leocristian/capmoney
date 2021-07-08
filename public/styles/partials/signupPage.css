@@ -12,18 +12,21 @@ nav {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #00C9FF;
-	background-color: #00C9FF;
+	border: 1px solid #d08011;
+	background-color: #ef961a;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+	/* transition: transform 80ms ease-in; */
 	cursor: pointer;
+	transition: .4s;
 }
-
+button:hover{
+	background-color: #d08011;
+}
 
 
 button:active {
@@ -34,14 +37,21 @@ button:focus {
 	outline: none;
 }
 
-button.ghost {
+.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
+	transition: .4s;
 }
 
-a#back{
+.ghost:hover{
+	background-color: #6842c275;
+}
+
+#back{
+	
 	text-decoration: none;
 	color: #fff;
+	background-color:transparent;
 	height: 50px;
 	margin: auto;
 	margin-top: 50px;
@@ -145,7 +155,7 @@ input[id="Biografia"]{
 .overlay {
   background: #00C9FF;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #5434af 40%, #1d075f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

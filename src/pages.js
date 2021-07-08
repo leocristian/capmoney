@@ -124,11 +124,16 @@ async function cadastroReuniao(req, res) {
 
     try {
       await cadastrarReuniao(url, data, startup_id, investidor_id)
-      return res.send('<script>alert("Reunião Agendada!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+      const investLogado = await Investidor.findOne({where: {id:investidor_id}});
+      var user_encrypted = Buffer.from(investLogado.Nome).toString('base64')
+      
+      return res.redirect('investidorPage?u=' + user_encrypted)
+      // .send('<script>alert("Reunião Agendada!")</script>')
+      // return res.send("<script> alert('Reunião Agendada!'); location.href=http://localhost:3000/investidorPage?u="+user_encrypted+"#;</script>")
       
     } catch (error) {
       console.log(`Erro ao cadastrar: ${error}`)
-      return res.send('<script>alert("Erro ao agendar reunião!"); location.href="http://localhost:3000/investidorPage?u=dGVzdGU=#"</script>')
+      return res.send('<script>alert("Erro ao agendar reunião!"); location.href="http://localhost:3000"</script>')
     }
 
   }
