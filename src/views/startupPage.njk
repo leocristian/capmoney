@@ -1,0 +1,7 @@
+<h1>Reunioes da startup: {{startupLogada.Nome}}</h1>
+
+{% for reuniao in reunioes %}
+    Data: {{reuniao.Data}} <br>
+    URL: {{reuniao.URL}}
+    <hr>
+{% endfor %}

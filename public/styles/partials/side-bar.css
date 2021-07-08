@@ -4,6 +4,8 @@ nav {
 	background: linear-gradient(to right, #5434af 40%, #1d075f);
 	height: 5rem;
 	width: 100%;
+	/* top: 0;
+	position: fixed; */
 }
 .logo-cap{
     height: 85%;

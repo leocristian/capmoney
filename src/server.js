@@ -1,7 +1,7 @@
 const express       = require('express')
 const nunjucks      = require('nunjucks');
 
-const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup, startups, cadastroReuniao }  = require('./pages')
+const { pageHome, loginPage, signupPage, cadastroInvestidor, cadastroStartup, startups, cadastroReuniao, buscarReunioes }  = require('./pages')
 
 
 
@@ -26,6 +26,7 @@ server
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
 .get("/InvestidorPage", startups)
+.get("/startupPage", buscarReunioes)
 .post("/reuniao", cadastroReuniao)
 
 .listen(3000, () => {

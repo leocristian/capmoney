@@ -5,9 +5,11 @@ const cadastrarStartup = require("./controllers/startup/cadastrar")
 const buscarStartup = require("./controllers/startup/buscar")
 
 const cadastrarReuniao = require("./controllers/reuniao/cadastrar")
+const buscarReuniao = require("./controllers/reuniao/buscar")
 
 const Investidor = require("./models/Investidor")
 const Startup = require("./models/StartUp")
+const Meeting = require("./models/Meeting")
 // const { response } = require("express")
 
 function pageHome(req, res) {
@@ -58,6 +60,8 @@ async function loginPage(req, res) {
    
       } else if (result instanceof Startup) {
         console.log('USUÁRIO É UMA STARTUP');
+        var user_encrypted = Buffer.from(username).toString('base64')
+        return res.redirect('startupPage?u=' + user_encrypted)
       }
       console.log(`Usuário ${result} encontrado!!`)
       return res.send('<script>alert("Usuario cadastrado!"); location.href="/login"</script>')
@@ -130,6 +134,20 @@ async function cadastroReuniao(req, res) {
   }
 }
 
+async function buscarReunioes(req, res) {
+  console.log(JSON.stringify(req.body))
+  var startup = Buffer.from(req.query.u, 'base64').toString();
+  const startupLogada = await Startup.findOne({where: {Nome:startup}});
+  console.log("StartupLogada: " + startupLogada)
+  let reunioes = await buscarReuniao(startupLogada.id)
+
+  console.log("REUNIOES: " + reunioes)
+
+  if(startupLogada){
+    return res.render("startupPage", {reunioes: reunioes, startupLogada})
+  }
+  else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
+}
 module.exports = {
   pageHome,
   loginPage,
@@ -137,5 +155,6 @@ module.exports = {
   cadastroInvestidor,
   cadastroStartup,
   startups,
-  cadastroReuniao
+  cadastroReuniao,
+  buscarReunioes
 }
