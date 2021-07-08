@@ -26,7 +26,6 @@ server
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
 .get("/InvestidorPage", startups)
-.get("/reuniao", cadastroReuniao)
 .post("/reuniao", cadastroReuniao)
 
 .listen(3000, () => {
