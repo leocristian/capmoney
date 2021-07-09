@@ -8,7 +8,8 @@ const { pageHome,
         cadastroStartup,
         startups,
         cadastroReuniao,
-        buscarReunioes}  = require('./pages')
+        buscarReunioes,
+        deletarConta}  = require('./pages')
 
 
 
@@ -33,6 +34,7 @@ server
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
 .get("/InvestidorPage", startups)
+.delete("/InvestidorPage/:id", deletarConta)
 .get("/startupPage", buscarReunioes)
 .post("/reuniao", cadastroReuniao)
 

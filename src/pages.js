@@ -1,5 +1,6 @@
 const cadastrarInvestidor = require("./controllers/investor/cadastrar")
 const buscarInvestidor = require("./controllers/investor/buscar")
+const deletarInvestidor = require("./controllers/investor/deletar")
 
 const cadastrarStartup = require("./controllers/startup/cadastrar")
 const buscarStartup = require("./controllers/startup/buscar")
@@ -161,6 +162,17 @@ async function buscarReunioes(req, res) {
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
 }
 
+async function deletarConta(req, res) {
+  console.log("DELETANDO CONTA----------------")
+  try {
+    const investidor = await deletarInvestidor(3)
+    return res.send('<script>alert("Conta Excluída"); location.href="/login"</script>')
+  } catch (error) {
+    console.log("Erro ao deletar conta: " + error)
+    return res.send('<script>alert("Conta Excluída");')
+  }  
+}
+
 module.exports = {
   pageHome,
   loginPage,
@@ -170,4 +182,5 @@ module.exports = {
   startups,
   cadastroReuniao,
   buscarReunioes,
+  deletarConta
 }
