@@ -56,6 +56,7 @@
             <ul>
                 {% for startup in  startups %}
                 <li class="container-info">
+                    <i class="fas fa-building"></i>
                     <legend>{{startup.Nome}}</legend>
                     <hr />
                     <span>{{startup.Objetivo}}</span>
@@ -75,8 +76,12 @@
         <div class="container-right">
             <ul>
                 <li class="container-info">
+                    <div class="buttons-user">
+                        <a href="" class="fas fa-user-edit"></a>
+                        <a href=""class="fas fa-user-times"></a>
+                    </div>
                     <div class="user-box">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-building"></i>
                         <h1 class="name-user">{{startupLogada.Nome}}</h1>
                         <hr>
                         <h3>Startup</h3>
