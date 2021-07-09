@@ -85,9 +85,10 @@ async function startups(req, res) {
   const investLogado = await Investidor.findOne({where: {Nome:investidor}});
 
   if(investLogado){
-    await Startup.findAll().then(function (startups) {
-     return res.render("investidorPage", {startups: startups,investLogado})
-    })
+    let startups = await Startup.findAll()
+    let reunioes = await Meeting.findAll({ where: { idInvestor: investLogado.id} })
+    return res.render("investidorPage", {startups: startups,investLogado, reunioes})
+    
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="/login"</script>')
 }
@@ -154,6 +155,7 @@ async function buscarReunioes(req, res) {
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
 }
+
 module.exports = {
   pageHome,
   loginPage,
@@ -162,5 +164,5 @@ module.exports = {
   cadastroStartup,
   startups,
   cadastroReuniao,
-  buscarReunioes
+  buscarReunioes,
 }
