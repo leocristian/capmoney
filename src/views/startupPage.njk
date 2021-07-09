@@ -1,7 +1,105 @@
-<h1>Reunioes da startup: {{startupLogada.Nome}}</h1>
+<!-- <h1>Reunioes da startup: {{startupLogada.Nome}}</h1>
 
 {% for reuniao in reunioes %}
     Data: {{reuniao.Data}} <br>
     URL: {{reuniao.URL}}
     <hr>
-{% endfor %}
+{% endfor %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="favicon" href="/images/icons/fav.png" />
+    <title>Cap Money - Investimentos</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/70997ba86d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/partials/side-bar.css" />
+    <link rel="stylesheet" href="/styles/partials/loginPage.css" />
+    <link rel="stylesheet" href="/styles/partials/investidorPage.css" />
+</head>
+
+<body>
+    
+    <nav>
+        <img class="logo-cap" src="/images/LOGO-CAP.svg" alt="logo">
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Ajuda</a></li>
+            <li><a class="active" id="bttn-sair" href="/">Sair</a></li>
+        </ul>
+    </nav>
+    <!-------------------------------- GRID DO MEIO DA PAGINA -->
+    <section id="box-page">
+        <!------------------ container esquerda -->
+        <div class="container-left">
+            <ul>
+                <li class="container-info">
+                        <div class="search-box">
+                            <input class="search-txt" type="text" name="" placeholder="Pesquisar" />
+                            <a class="search-btn" href="#">
+                                <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+                </li>
+            </ul>
+        </div>
+        <!------------------ container meio -->
+        <div class="container-feed">
+            <ul>
+                {% for startup in  startups %}
+                <li class="container-info">
+                    <legend>{{startup.Nome}}</legend>
+                    <hr />
+                    <span>{{startup.Objetivo}}</span>
+                    <hr />
+                    <div class="legend-post">
+                        <span><a>Desde: 2009</a></span>
+                        <span><a>Faturamento: {{startup.Faturamento}}</a></span>
+                        <span><a>{{startup.Site}}</a></span>
+                        <span><a>{{startup.Email}}</a></span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+       
+        <!------------------ container direita -->
+        <div class="container-right">
+            <ul>
+                <li class="container-info">
+                    <div class="user-box">
+                        <i class="fas fa-user"></i>
+                        <h1 class="name-user">{{startupLogada.Nome}}</h1>
+                        <hr>
+                        <h3>Startup</h3>
+                        <h5 class="bio-user">{{startupLogada.Objetivo}}</h5>
+                    </div>
+                </li>
+                <li class="container-info">
+                    <h4>Reuniões</h4>
+                    {% for reuniao in reunioes %}
+                        Data: {{reuniao.Data}} <br>
+                        URL: {{reuniao.URL}}
+                        <hr>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <h4>Capmoney</h4>
+        <p>R. Cícero Duarte, nº 905 - Junco, Picos - PI, 64607-670</p>
+        <p>📞 +55 (89) 4002-8922</p>
+    </footer>
+
+</body>
+
+</html>
