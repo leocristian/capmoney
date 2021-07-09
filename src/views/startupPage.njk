@@ -77,8 +77,13 @@
             <ul>
                 <li class="container-info">
                     <div class="buttons-user">
+<<<<<<< HEAD
                         <!-- <a href="" class="fas fa-user-edit"></a> -->
                         <a href=""class="fas fa-user-times"></a>
+=======
+                        <a href="" class="fas fa-user-edit"></a>
+                        <a href="/deletarStartup/{{startupLogada.id}}"class="fas fa-user-times"></a>
+>>>>>>> ff0072ec53be5fc17e96466ead477a00fe9cb5eb
                     </div>
                     <div class="user-box">
                         <i class="fas fa-building"></i>
@@ -92,7 +97,8 @@
                     <h4 class="meetings-title">Suas Reuniões</h4>
                     {% for reuniao in reunioes %}
                         Data: {{reuniao.Data}} <br>
-                        URL: {{reuniao.URL}}
+                        URL: {{reuniao.URL}} <br>
+                        <button>Excluir</button>
                         <hr>
                     {% endfor %}
                 </li>

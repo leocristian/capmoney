@@ -1,15 +1,15 @@
 const database = require('../../../db');
 const Investidor = require("../../models/Investidor")
 
-async function deletarInvestidor(idParam) {
+async function deletarInvestidorBD(idParam) {
     console.log("entrou deletar");
     try {
         const resultado = await database.sync();
-        const investidor = await Investidor.destroy({ where: { id: idParam} })
+         await Investidor.destroy({ where: { id: idParam} })
         console.log("Investidor deletado!!");
     } catch (error) {
         console.log(`Erro ao deletar: ${error}`);
     }
 }
 
-module.exports = deletarInvestidor
+module.exports = deletarInvestidorBD

@@ -1,12 +1,14 @@
 const cadastrarInvestidor = require("./controllers/investor/cadastrar")
 const buscarInvestidor = require("./controllers/investor/buscar")
-const deletarInvestidor = require("./controllers/investor/deletar")
+const deletarInvestidorBD = require("./controllers/investor/deletar")
 
 const cadastrarStartup = require("./controllers/startup/cadastrar")
 const buscarStartup = require("./controllers/startup/buscar")
+const deletarStartupBD = require("./controllers/startup/deletar")
 
 const cadastrarReuniao = require("./controllers/reuniao/cadastrar")
 const buscarReuniao = require("./controllers/reuniao/buscar")
+const deletarReuniaoBD = require('./controllers/reuniao/deletar');
 
 const Investidor = require("./models/Investidor")
 const Startup = require("./models/StartUp")
@@ -162,15 +164,35 @@ async function buscarReunioes(req, res) {
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
 }
 
-async function deletarConta(req, res) {
-  console.log("DELETANDO CONTA----------------")
+async function deletarInvestidor(req, res) {
+  console.log("DELETANDO CONTA INVESTIDOR----------------");
+
   try {
-    const investidor = await deletarInvestidor(3)
-    return res.send('<script>alert("Conta Excluída"); location.href="/login"</script>')
+    await deletarInvestidorBD(req.params.id)
+    return res.send('<script>alert("Conta deletada com sucesso!"); location.href="/login"</script>')
   } catch (error) {
-    console.log("Erro ao deletar conta: " + error)
-    return res.send('<script>alert("Conta Excluída");')
-  }  
+    return res.send("Erro ao deletar conta: " + error)
+  }
+  
+}
+
+async function deletarStartup(req, res) {
+  try {
+    await deletarStartupBD(req.params.id)
+    return res.send('<script>alert("Conta deletada com sucesso!"); location.href="/login"</script>')
+  } catch (error) {
+    return res.send("Erro ao deletar conta: " + error)
+  }
+}
+
+async function deletarReuniao(req, res) {
+  console.log("entrou deletar reuniao")
+  try {
+    await deletarReuniaoBD(req.params.id)
+    return res.send("Reunião deletada!!")
+  } catch (error) {
+    return res.send("Erro ao deletar reuniao: " + error)   
+  }
 }
 
 module.exports = {
@@ -182,5 +204,7 @@ module.exports = {
   startups,
   cadastroReuniao,
   buscarReunioes,
-  deletarConta
+  deletarReuniao,
+  deletarInvestidor,
+  deletarStartup
 }
