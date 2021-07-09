@@ -15,8 +15,12 @@ const Startup = require("./models/StartUp")
 const Meeting = require("./models/Meeting")
 // const { response } = require("express")
 
+
 function pageHome(req, res) {
   return res.render("index.html")
+}  
+function sobre(req, res) {
+  return res.render("sobre.html")
 }  
 
 
@@ -206,5 +210,6 @@ module.exports = {
   buscarReunioes,
   deletarReuniao,
   deletarInvestidor,
-  deletarStartup
+  deletarStartup,
+  sobre
 }

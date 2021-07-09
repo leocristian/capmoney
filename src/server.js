@@ -1,5 +1,7 @@
 const express       = require('express')
-const nunjucks      = require('nunjucks')
+const nunjucks      = require('nunjucks');
+
+
 
 const { pageHome,
         loginPage,
@@ -11,7 +13,8 @@ const { pageHome,
         buscarReunioes,
         deletarReuniao,
         deletarInvestidor,
-        deletarStartup}  = require('./pages')
+        deletarStartup,
+        sobre}  = require('./pages')
 
 
 const server = express()
@@ -40,6 +43,7 @@ server
 .get("/deletarReuniao/:id", deletarReuniao)
 .get("/startupPage", buscarReunioes)
 .post("/reuniao", cadastroReuniao)
+.get("/sobre", sobre)
 
 .listen(3000, () => {
     console.log(`Servidor rodando no endereço: localhost:${3000}`)
