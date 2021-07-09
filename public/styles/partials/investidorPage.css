@@ -351,3 +351,21 @@ margin: 0 1rem;
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+.container-info button{
+  color: white;
+  background-color: #7e7e7e;
+  font-style: bold;
+  font-size: 14px;
+  font-weight:600;
+  border: 1px solid rgba(189, 189, 189, 0.8);
+  border-radius: 2rem;
+  padding: 2px 8px;
+  margin: 6px;
+  transition: .4s;
+}
+
+.container-info button:hover{
+  background-color: red;
+  cursor: pointer;
+}
