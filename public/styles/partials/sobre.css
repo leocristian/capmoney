@@ -51,3 +51,150 @@
   font-weight:400;
   text-align: justify;
 }
+
+
+.ourValues ul{
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center
+}
+
+.ourValues ul li {
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+  height:36rem;
+  width:25rem;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid rgba(149, 143, 153, 0.507) ;
+  border-radius: 2rem;
+  color: #5434af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+
+ 
+}
+
+.ourValues ul li img{
+ height: 10rem;
+}
+
+.ourValues ul li h4 {
+  font-weight: 700;
+}
+.ourValues ul li p {
+  padding-top: 2rem;
+  font-size:1.5rem;
+  font-weight:400;
+}
+
+.depoimentos{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin:  auto;
+  padding: 3rem 5rem;
+}
+.depoimentos div{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.depoimentos h3{
+  text-decoration: underline;
+  font: 700 3rem Archivo;
+  margin-bottom: 5rem;
+}
+
+.depoimentos .pessoa {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height:20rem;
+  text-align: center;
+}
+
+.depoimentos .pessoa img{
+  height:20rem;
+  border-radius: 5rem;
+}
+.depoimentos div .balao{
+  background: #ffffff;
+  border: 1px solid rgba(149, 143, 153, 0.507) ;
+  border-radius: 2rem;
+  color: #5434af;
+  padding: 2rem;
+  margin-left: 2rem;
+}
+
+.empresas{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin:  auto;
+  padding: 3rem 5rem;
+  background: #2F55BD;
+  color: white;
+}
+.empresas h3{
+  text-decoration: underline;
+  font: 700 3rem Archivo;
+  margin-bottom: 5rem;
+}
+.empresas ul{
+  display: flex;
+  flex-direction: row;
+}
+.empresas li{
+  list-style: none;
+  margin: 5rem 1rem;
+}
+
+.empresas li img{
+  list-style: none;
+  height:10rem;
+  border-radius:2rem;
+}
+
+
+.time{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin:  auto;
+  padding: 3rem 5rem;
+}
+
+
+.time h3{
+  text-decoration: underline;
+  font: 700 3rem Archivo;
+  margin-bottom: 5rem;
+}
+.time ul{
+  display: flex;
+  flex-direction: row;
+}
+.time li {
+  list-style: none;
+  margin:  auto 5rem;
+}
+
+.time li  img{
+  filter: brightness(50%);
+  list-style: none;
+  height:20rem;
+  border-radius:50%;
+}
+
+.time li  img:hover{
+  filter: brightness(100%);
+  list-style: none;
+  height:20rem;
+  border-radius:50%;
+}
