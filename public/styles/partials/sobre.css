@@ -86,6 +86,15 @@
 .ourValues ul li h4 {
   font-weight: 700;
 }
+
+.ourValues h2 {
+  margin-top: 10rem;
+}
+
+.ourValues .fas{
+  font-size: 25px;
+}
+
 .ourValues ul li p {
   padding-top: 2rem;
   font-size:1.5rem;
@@ -197,4 +206,10 @@
   list-style: none;
   height:20rem;
   border-radius:50%;
+}
+
+.ajuda-image{
+  width: 500px;
+  height: 500px;
+  padding-left: 10rem;
 }

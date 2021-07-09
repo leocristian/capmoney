@@ -19,8 +19,13 @@ const Meeting = require("./models/Meeting")
 function pageHome(req, res) {
   return res.render("index.html")
 }  
+
 function sobre(req, res) {
   return res.render("sobre.html")
+}  
+
+function ajuda(req, res) {
+  return res.render("ajuda.html")
 }  
 
 
@@ -211,5 +216,6 @@ module.exports = {
   deletarReuniao,
   deletarInvestidor,
   deletarStartup,
-  sobre
+  sobre,
+  ajuda
 }

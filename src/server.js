@@ -14,7 +14,8 @@ const { pageHome,
         deletarReuniao,
         deletarInvestidor,
         deletarStartup,
-        sobre}  = require('./pages')
+        sobre,
+        ajuda}  = require('./pages')
 
 
 const server = express()
@@ -44,6 +45,7 @@ server
 .get("/startupPage", buscarReunioes)
 .post("/reuniao", cadastroReuniao)
 .get("/sobre", sobre)
+.get("/ajuda", ajuda)
 
 .listen(3000, () => {
     console.log(`Servidor rodando no endereço: localhost:${3000}`)
