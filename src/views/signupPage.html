@@ -34,7 +34,7 @@
     <!-- from the tutorial https://medium.freecodecamp.org/how-to-build-a-double-slider-sign-in-and-sign-up-form-6a5d03612a34 -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="/cadastroInvestidor" method="POST">
+		<form action="/cadastroInvestidor"  onsubmit="return aSenhaehForteInvestidor()" method="POST">
 			<h1>Criando conta de Investidor</h1>
 			<input required type="text" placeholder="Name" name="Name" id="Name" />
 			<input required type="email" placeholder="Email" name="Email" id="Email" />
@@ -47,7 +47,7 @@
 	</div>
 
 	<div class="form-container sign-in-container">
-		<form action="/cadastroStartup" method="POST">
+		<form action="/cadastroStartup"  onsubmit="return aSenhaehForteStartup()" method="POST">
 			<h1>Criando Conta de Startup</h1>
 			<input required	type="text" placeholder="nome" name="nome" id="nome" />
 			<input required type="email" placeholder="Email" name="Email" id="email" />
