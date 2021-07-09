@@ -149,7 +149,8 @@ async function buscarReunioes(req, res) {
   console.log("REUNIOES: " + reunioes)
 
   if(startupLogada){
-    return res.render("startupPage", {reunioes: reunioes, startupLogada})
+
+  return res.render("startupPage", {reunioes: reunioes, startupLogada})
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
 }

@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		
     <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
     rel="stylesheet">
@@ -31,22 +34,25 @@
     <!-- from the tutorial https://medium.freecodecamp.org/how-to-build-a-double-slider-sign-in-and-sign-up-form-6a5d03612a34 -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="/cadastroInvestidor" method="POST">
+		<form action="/cadastroInvestidor"  onsubmit="return aSenhaehForteInvestidor()" method="POST">
 			<h1>Criando conta de Investidor</h1>
 			<input required type="text" placeholder="Name" name="Name" id="Name" />
 			<input required type="email" placeholder="Email" name="Email" id="Email" />
-			<input required type="password" placeholder="Password" name="Password" id="Password" />
+			<input required type="password"  placeholder="Password" name="Password" id="Password_investidor"  onkeyup="validarSenhaForca_investidor()" />
+			<div class="mx-auto" style="width: 200px;" id="erroSenhaForca_investidor"> </div>
+			
 			<input required type="text" placeholder="Biografia" name="Biografia" id="Biografia" />
 			<button type="submit" value="submit" >Criar conta</button>
 		</form>
 	</div>
 
 	<div class="form-container sign-in-container">
-		<form action="/cadastroStartup" method="POST">
+		<form action="/cadastroStartup"  onsubmit="return aSenhaehForteStartup()" method="POST">
 			<h1>Criando Conta de Startup</h1>
 			<input required	type="text" placeholder="nome" name="nome" id="nome" />
-			<input required type="email" placeholder="Email" name="Email" id="Email" />
-			<input required type="password" placeholder="Password" name="Password" id="Password" />
+			<input required type="email" placeholder="Email" name="Email" id="email" />
+			<input required type="password" placeholder="Password" name="Password" id="Password_startup"  onkeyup="validarSenhaForca_startup()"/>
+			<div class="mx-auto"  style="width: 200px;" id="erroSenhaForca_startup"> </div>
 			<input required type="url" placeholder="Site" name="Site" id="Site" />
 			<input required type="text" placeholder="CNPJ" name="CNPJ" id="CNPJ" />
 			<input required type="number" placeholder="Anos de atuação" name="Anos_de_atuação" id="Anos_de_atuação" />
@@ -96,5 +102,10 @@
 	<p>📞 +55 (89) 4002-8922</p>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="/scripts/signupPage/forcaSenha.js"></script>
 </body>
 </html>

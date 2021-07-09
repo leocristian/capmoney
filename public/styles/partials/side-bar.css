@@ -38,7 +38,7 @@ nav ul li a#bttn-sair {
 	background-color: #5434af;
 }
 
-a.active, a:hover {
+nav a.active, nav a:hover {
   background: #1d075f;
 	transition: .5s;
 }
