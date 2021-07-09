@@ -25,7 +25,7 @@ server
 .get("/cadastro", signupPage)
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
-.get("/InvestidorPage", startups)
+.get("/InvestidorPage", startups, buscarReunioes)
 .get("/startupPage", buscarReunioes)
 .post("/reuniao", cadastroReuniao)
 
