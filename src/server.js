@@ -1,5 +1,5 @@
 const express       = require('express')
-const nunjucks      = require('nunjucks');
+const nunjucks      = require('nunjucks')
 
 const { pageHome,
         loginPage,
@@ -9,8 +9,9 @@ const { pageHome,
         startups,
         cadastroReuniao,
         buscarReunioes,
-        deletarConta}  = require('./pages')
-
+        deletarReuniao,
+        deletarInvestidor,
+        deletarStartup}  = require('./pages')
 
 
 const server = express()
@@ -34,7 +35,9 @@ server
 .post("/cadastroInvestidor", cadastroInvestidor)
 .post("/cadastroStartup", cadastroStartup)
 .get("/InvestidorPage", startups)
-.delete("/InvestidorPage/:id", deletarConta)
+.get("/deletarInvestidor/:id", deletarInvestidor)
+.get("/deletarStartup/:id", deletarStartup)
+.get("/deletarReuniao/:id", deletarReuniao)
 .get("/startupPage", buscarReunioes)
 .post("/reuniao", cadastroReuniao)
 

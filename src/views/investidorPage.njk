@@ -124,7 +124,7 @@
                 <li class="container-info">
                     <div class="buttons-user">
                         <a href="" class="fas fa-user-edit"></a>
-                        <a href=""class="fas fa-user-times"></a>
+                        <a href="/deletarInvestidor/{{investLogado.id}}"class="fas fa-user-times"></a>
                     </div>
                     <div class="user-box">
                         <i class="fas fa-user-tie"></i>
@@ -138,8 +138,9 @@
                     <h4 class="meetings-title">Suas Reuniões</h4>
                         <hr>
                     {% for reuniao in reunioes %}
-                        Data: {{reuniao.Data}} 
-                        URL: {{reuniao.URL}}
+                        Data: {{reuniao.Data}} <br>
+                        URL: {{reuniao.URL}} <br>
+                        <a href="/deletarReuniao/{{reuniao.id}}"><button>Excluir</button></a>
                         <hr>
                     {% endfor %}
                 </li>
