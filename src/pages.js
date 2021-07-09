@@ -83,7 +83,9 @@ function signupPage(req, res) {
 
 async function startups(req, res) {
   var investidor = Buffer.from(req.query.u, 'base64').toString();
+  var startup = Buffer.from(req.query.u, 'base64').toString();
   const investLogado = await Investidor.findOne({where: {Nome:investidor}});
+  const startupLogada = await Startup.findOne({where: {Nome:startup}});
 
   if(investLogado){
     let startups = await Startup.findAll()
@@ -92,6 +94,7 @@ async function startups(req, res) {
     
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="/login"</script>')
+
 }
 
 async function cadastroInvestidor(req, res) {
@@ -152,7 +155,9 @@ async function buscarReunioes(req, res) {
 
   if(startupLogada){
 
-  return res.render("startupPage", {reunioes: reunioes, startupLogada})
+    let startups = await Startup.findAll()
+    let reunioes = await Meeting.findAll({ where: { idStartup: startupLogada.id} })
+  return res.render("startupPage", {reunioes,startups: startups, reunioes, startupLogada})
   }
   else return res.send('<script>alert("Voce não tem acesso a essa pagina"); location.href="#"</script>')
 }

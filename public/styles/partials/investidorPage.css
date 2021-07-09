@@ -28,6 +28,7 @@ ul{
     padding: 3rem;
     margin-bottom: 1rem;
 
+
     border-radius: 1.5rem;
     border: 1px solid rgba(70, 88, 116, 0.507) ;
     
@@ -103,6 +104,26 @@ legend{
     font-weight: 700;
     color: #353b48 ;
     text-align: left;
+
+}
+
+.container-feed .fas{
+  color: #1d075f;
+  font-size: 26px;
+  padding-right: 1rem;
+  margin-top: 0.4rem;
+
+  float: left;
+
+}
+
+.contact-button .fas{
+  color: white;
+  font-size: 20px;
+  padding-right: 0;
+  margin-top: 0;
+
+  float: none;
 
 }
 
@@ -276,6 +297,30 @@ margin: 0 1rem;
   justify-content: center;
   justify-items: center;
 
+}
+
+.buttons-user{
+  margin-left: 20rem;
+}
+
+.buttons-user .fas{
+  text-decoration: none;
+  color: #7e7e7e;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.buttons-user .fas:last-child{
+  color: #7e7e7e;
+  transition: 0.5s;
+}
+
+.buttons-user .fas:hover{
+  color: #1d075f;
+}
+
+.buttons-user .fas:last-child:hover{
+  color: red;
 }
 
 .user-box .fas{

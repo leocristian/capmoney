@@ -34,12 +34,12 @@
         <div class="container-left">
             <ul>
                 <li class="container-info">
-                        <div class="search-box">
-                            <input class="search-txt" type="text" name="" placeholder="Pesquisar" />
-                            <a class="search-btn" href="#">
-                                <i class="fas fa-search"></i>
-                            </a>
-                        </div>
+                    <div class="search-box">
+                        <input class="search-txt" type="text" name="" placeholder="Pesquisar" />
+                        <a class="search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -48,6 +48,7 @@
             <ul>
                 {% for startup in  startups %}
                 <li class="container-info">
+                    <i class="fas fa-building"></i>
                     <legend>{{startup.Nome}}</legend>
                     <a class="contact-button" id="botao_contato" onClick="Mostrar()" href="#Form{{startup.id}}">
                         <i class="fas fa-comments-dollar"></i>
@@ -121,6 +122,10 @@
         <div class="container-right">
             <ul>
                 <li class="container-info">
+                    <div class="buttons-user">
+                        <a href="" class="fas fa-user-edit"></a>
+                        <a href=""class="fas fa-user-times"></a>
+                    </div>
                     <div class="user-box">
                         <i class="fas fa-user-tie"></i>
                         <h1 class="name-user">{{investLogado.Nome}}</h1>
