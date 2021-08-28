@@ -183,7 +183,6 @@ async function deletarReuniao(req, res) {
 }
 
 async function filtrarStartups(req, res) {
-  console.log("entrou filtrar")
   
   const { filtro } = req.body
   let startupsFiltradas = await Startup.findAll({ where: { Nome: filtro} })
