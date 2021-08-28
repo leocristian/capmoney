@@ -35,10 +35,13 @@
             <ul>
                 <li class="container-info">
                     <div class="search-box">
-                        <input class="search-txt" type="text" name="" placeholder="Pesquisar" />
-                        <a class="search-btn" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
+                        <form action="/filtrar" method="POST">
+                            <input class="search-txt" type="text" name="filtro" placeholder="Pesquisar" />
+                            <a class="search-btn" href="#">
+                                <button type="submit">Filtrar</button>
+                                <!-- <i class="fas fa-search"></i> -->
+                            </a>
+                        </form>
                     </div>
                 </li>
             </ul>

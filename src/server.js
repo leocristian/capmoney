@@ -3,19 +3,9 @@ const nunjucks      = require('nunjucks');
 
 
 
-const { pageHome,
-        loginPage,
-        signupPage,
-        cadastroInvestidor,
-        cadastroStartup,
-        startups,
-        cadastroReuniao,
-        buscarReunioes,
-        deletarReuniao,
-        deletarInvestidor,
-        deletarStartup,
-        sobre,
-        ajuda}  = require('./pages')
+const { pageHome, loginPage, signupPage, cadastroInvestidor, 
+        cadastroStartup, startups, cadastroReuniao,
+        buscarReunioes, deletarReuniao, deletarInvestidor, deletarStartup, sobre, ajuda, filtrarStartups}  = require('./pages')
 
 
 const server = express()
@@ -46,6 +36,7 @@ server
 .post("/reuniao", cadastroReuniao)
 .get("/sobre", sobre)
 .get("/ajuda", ajuda)
+.post("/filtrar", filtrarStartups)
 
 .listen(3000, () => {
     console.log(`Servidor rodando no endereço: localhost:${3000}`)

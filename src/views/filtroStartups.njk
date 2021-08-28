@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filtro</title>
+     <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/70997ba86d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/partials/side-bar.css" />
+    <link rel="stylesheet" href="/styles/partials/loginPage.css" />
+    <link rel="stylesheet" href="/styles/partials/investidorPage.css" />
+</head>
+<body>
+    
+    {% for startup in  startupsFiltradas %}
+    <li class="container-info">
+        <i class="fas fa-building"></i>
+        <legend>{{startup.dataValues.Nome}}</legend>
+        <a class="contact-button" id="botao_contato" onClick="Mostrar()" href="#Form{{startup.id}}">
+            <i class="fas fa-comments-dollar"></i>
+            Contato
+        </a>
+        
+        
+        
+        <hr />
+        <span>{{startup.Objetivo}}</span>
+        <hr />
+        <div class="legend-post">
+            <span><a>Desde: 2009</a></span>
+            <span><a>Faturamento: {{startup.dataValues.Faturamento}}</a></span>
+            <span><a>{{startup.dataValues.Site}}</a></span>
+            <span><a>{{startup.dataValues.Email}}</a></span>
+        </div>
+    </li>
+    
+    {% endfor %}
+</body>
+</html>

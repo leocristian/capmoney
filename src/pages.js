@@ -13,8 +13,6 @@ const deletarReuniaoBD = require('./controllers/reuniao/deletar');
 const Investidor = require("./models/Investidor")
 const Startup = require("./models/StartUp")
 const Meeting = require("./models/Meeting")
-// const { response } = require("express")
-
 
 function pageHome(req, res) {
   return res.render("index.html")
@@ -28,25 +26,6 @@ function ajuda(req, res) {
   return res.render("ajuda.html")
 }  
 
-
-// async function Verifica_Usuario_Cadastrado_BD(req){
-//   const { username, passwd } = req.body
-//     console.log('req.body ==',req.body);
-
-//     // Deve verificar se o usuário informado no login está cadastrado no banco de dados
-//     let result = await buscarInvestidor(username, passwd)
-//     if (result == undefined) result = await buscarStartup(username, passwd)
-    
-//     if (result != undefined && result.Nome === username && result.Password === passwd) {
-//       if (result instanceof Investidor){
-//         return [true,'I',result]
-//       } else if (result instanceof Startup) {
-//         return [true,'S',result]
-//       }     
-//     } else {
-//       return [false,'',result]
-//     }
-// }
 async function loginPage(req, res) {
   if (req.method == "POST"){
 
@@ -79,7 +58,6 @@ async function loginPage(req, res) {
       return res.send('<script>alert("Usuario cadastrado!"); location.href="/login"</script>')
       
     } else {
-      // res.send('<script>alert("Usuario não cadastrado!"); location.href="/" </script>')
       console.log(`Usuário ${result} NÂO cadastrado!!`)
       return res.send('<script>alert("Usuario não cadastrado!"); location.href="/login"</script>')
     }
@@ -204,6 +182,16 @@ async function deletarReuniao(req, res) {
   }
 }
 
+async function filtrarStartups(req, res) {
+  console.log("entrou filtrar")
+  
+  const { filtro } = req.body
+  let startupsFiltradas = await Startup.findAll({ where: { Nome: filtro} })
+
+  console.log(startupsFiltradas)
+  return res.render("filtroStartups", {startupsFiltradas})
+}
+
 module.exports = {
   pageHome,
   loginPage,
@@ -217,5 +205,6 @@ module.exports = {
   deletarInvestidor,
   deletarStartup,
   sobre,
-  ajuda
+  ajuda,
+  filtrarStartups
 }
